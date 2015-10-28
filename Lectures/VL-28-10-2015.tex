@@ -1,0 +1,163 @@
+\documentclass[../skript.tex]{subfiles}
+
+\chapter{Introduction}\label{c1}
+	
+	Functional Analysis is the analysis on infinite dimensional spaces. Applications of FA are in geometry and topology, probability theory, numerical analysis mathematical physics, and PDEs.\newline\noindent
+	\begin{example}\label{c1exa1}
+		$C^2(U),\,U\subset\mathbb{R}^n$ is the set of functions which are 2 times differentiable and have a bounded derivative. $U$ should be a bounded, open set. Consider $f\to 0$ on $\partial U$ and
+		\[
+			\Delta = \sum_{j=1}^n \left(\frac{\partial}{\partial u_j}\right)^2.
+		\]
+		Fix $f\in C(U)$ and look for a solution $u\in C^2(U)$, s.t. 
+		\[
+			\Delta u = f,\quad u=\delta^{-1} f.
+		\]
+		What is the inverse operator $\delta^{-1}$ in this case? That's what we need to study here.
+	\end{example}
+
+\subsection*{Program of the lecture}
+	\begin{itemize}
+		\item 	Structures: We need to define \emph{Topologies, Metrics, Norms} and \emph{Scalarproducts} on infinite-dimensional spaces
+		\item 	We introduce \emph{Functional Spaces} as infinite-dimensional vector spaces of functions
+		\item 	We need to talk about \emph{Linear Operators} to be able to talk about their inverse (see \cref{c1ex1})
+	\end{itemize}
+
+\chapter{Structures}\label{c2}
+	We consider \emph{convergence}. We have already seen 
+	\[
+		x_n \to x\quad\Leftrightarrow\quad \forall \varepsilon>0\exists n_0\,\forall n>n_0: x_n\in(x-\varepsilon,x+\varepsilon)
+	\]
+	In order to do so, we need the definition of a neighbourhood (topology), distances (metric), the length of a vector (norm, Banach spaces), the length and angles (scalar product, Hilbert spaces).\newline\newline\noindent
+	\textbf{All vector spaces we consider should base on $\mathbb{K}\in\{\mathbb{R},\mathbb{C}\}$!}\newline\newline\noindent
+
+	\section{Topological spaces}\label{c1se1}
+		Let $X$ be a set, let $2^X$ the set of all possible subsets of $X$ (including the empty set). 
+		\begin{definition}[Topology]\label{c1se1def1}
+			A Topology $\mathcal{T}$ on the set $X$ is a family of subsets of $X$, that means
+			\[
+				\mathcal{T}\subseteq 2^X,
+			\] 
+			satisfying
+			\begin{itemize}
+				\item [T1] \quad$\emptyset,X\in\mathcal{T}$
+				\item [T2] \quad Stability under finite intersection:
+					\[
+						\forall A,B\in\mathcal{T}:\quad A\cap B\in\mathcal{T}
+					\]
+				\item [T3]\quad Stability under any possible union: Let $\mathcal{I}$ be some set of indices (may not be countable). Then
+					\[
+						\forall \{A_i\}_{i\in\mathcal{I}}\subseteq\mathcal{T}:\quad \bigcup_{i\in\mathcal{I}} A_i\in\mathcal{T}
+					\]
+			\end{itemize}
+			Any subset $A\subset X$ is called an \emph{open set}, if $A\in\mathcal{T}$. Else it is called a \emph{closed set}.\newline\newline\noindent
+			$(X,\mathcal{T})$ is called a \emph{topological space}!
+		\end{definition}
+		\begin{remark}
+			Note that
+			\[
+				\left( \bigcup_{i\in\mathcal{I}} A_i \right)^c = \cap_{i\in\mathcal{I}} A_i^c
+			\]
+			for all families of open sets $\{A_i\}_{i\in\mathcal{I}}$ and each index-set $\mathcal{I}$.
+		\end{remark}
+		\begin{definition}[Coarser / finer topologies]\label{c1se1def2}
+			Let $\mathcal{T}_1,\mathcal{T}_2$ be two topologies on $X$ with $\mathcal{T}_1\subset\mathcal{T}_2$, then we say that
+			\begin{itemize}
+				\item $\mathcal{T}_1$ is \emph{coarser / weaker} than $\mathcal{T}_2$
+				\item $\mathcal{T}_2$ is \emph{finer /stronger} tthan $\mathcal{T}_1$
+			\end{itemize}
+		\end{definition}
+% newline?
+		\begin{example}\label{c1se1exa2}
+			\begin{itemize}
+			\item [a)]\quad $\mathcal{T} = 2^X$ is a topology on $X$ $\Rightarrow 2^X$ is the storngest (finest) topology on $X$.\newline\newline\noindent
+			Also $\mathcal{T}= \{\emptyset,X\}$ is a topology on $X$ $\Rightarrow$ any topology $\mathcal{T}'$ needs to caontain $\emptyset$ and $X$, so $\mathcal{T}\subset\mathcal{T}'$. This means that $\mathcal{T}$ is the weakest / coarsest topology on $X$
+			\item [b)]\quad On $\mathbb{R}$ there is a standard topology $\mathcal{T}_{st}$:
+					\[
+						V\in\mathcal{T}_{st}\,\text{ iff }\,\forall x\in V\,\exists\varepsilon > 0: (x-\varepsilon,x+\varepsilon)\subset V
+					\]
+			\item [c)]\quad \emph{relative topology}: Let $A\subset X$, let $\mathcal{T}$ be a topology on $X$. Then 
+					\[
+						\mathcal{T}_A \{A\cup V:\,V\in\mathcal{T}\}
+					\]
+%BILD1 BILD 1 und BILD2 BILD 2 zusammen!
+			\item  [d)]\quad \emph{Intersection of topologies}: Let $\mathcal{I}$ an index set (may be uncountable), let $(\mathcal{T}_i)_{i\in\mathcal{I}}$ be a family of topologies on $X$. Then we can define
+			\[
+				\bigcap_{i\in\mathcal{I}} \mathcal{T}_i
+			\]
+			and this is again a topology on $X$!
+			\item [e)]\quad\emph{Product topology}: Let $(X,\mathcal{T}_X)$ and $(Y,\mathcal{T}_Y)$ two topological spaces. Let 
+				\[
+					\mathcal{S} = \{(V,X)|\,V\in\mathcal{T}_X\}\cup\{(X,W)|\,W\in\mathcal{T}_Y\}.
+				\]
+				The product topology on $X\times Y$ is the coarsest (weakest) topology on $X\times Y$, that contains $\mathcal{S}$. In particular it must contain all sets of the form $U\times V$ for $U\in\mathcal{T}_X, V\in\mathcal{T}_Y$.
+		\end{itemize}
+		\end{example}
+% newline?
+		\begin{remark}
+			If nothing else is said, we consider the standard topology $\mathcal{T}_{st}$ on $\mathbb{R}$!
+		\end{remark}
+
+		\begin{definition}[Closure / boundary of a set]\label{c1se1def3}
+			Let $(X,\mathcal{T})$ topological space, $A\in X$.\newline\noindent
+			The \emph{interior} of $A$, $A^\circ$ is the largest open set inside 
+			\[
+				A = \bigcup_{V\in\mathcal{T},V\subseteq A}V\text{ (open)}.
+			\]
+			The \emph{closure} of $A$, $\bar{A}$ is the smallest closed set containing 
+			\[
+				A = \bigcup_{V\text{ s.t. } V^c\in\mathcal{T}, V\supseteq A} V\text{ (closed)}.
+			\]
+			The \emph{boundary} of $A$ is given by
+			\[
+				\partial A = \bar{A}\setminus A^\circ = \bar{A} \cap \underbrace{(X\setminus A^\circ)}_{(A^c)^c}\text{ (closed)}.
+			\]
+%BILD3 BILD 3
+		\end{definition}
+		\begin{definition}[dense set / separable set]\label{c1se1def4}
+			$(X,\mathcal{T})$ topological space in $X$. Then
+			\begin{itemize}
+				\item $A\subset X$ is called \emph{dense in $X$}, if $\bar{A}=X$
+				\item $X$ is called \emph{separable}, if there is a countable dense subset of $X$
+			\end{itemize}
+		\end{definition}
+		\begin{definition}[open neighbourhood]\label{c1se1def5}
+			$(X,\mathcal{T})$ topological space, $x\in X$. A subset $V\subseteq X$ is called an open neighbourhood of $x$, if 
+			$V\in\mathcal{T}$ and $x\in V$.
+		\end{definition}
+		\begin{definition}[Convergence in topology]\label{c1se1def6}
+			Let $(\mathcal{T},X)$ topological space. A sequence $(x_n)_{n\in\mathbb{N}}$, i.e. a map
+			\begin{eqnarray*}
+				x:&\mathbb{N}\to X\\
+				n\to x_n,
+			\end{eqnarray*}
+			emph{converges} to $x^*\in X$, if
+			\[
+				\forall V\text{ open neighbourhood of } x^*:\,\{n|\,x_n\in V^c\}\text{ is finite}
+			\]
+			(i.e. there is just a finite number of elements that's not contained in $V$). Then we say that $x^*$ is a limit point for the sequence $x_n$.
+		\end{definition}
+		\begin{example}\label{c1se1exa3}
+			\begin{itemize}
+				\item [a)]\quad Let $\mathcal{T}$ the standard topology on $\mathbb{R}$. Then the definition of converges equals the $\varepsilon$-		$\delta$-Definition of convergence in Analysis 3.
+				\item [b)]\quad If $\mathcal{T}=2^X$, then $x_n\to x^*$ iff $x_n$ is constant up to a finite number of terms: As we have $\mathcal{T}=2^X$ especially the set $V=\{x^*\}$ is open. This set gives us the result. 
+				\item [c)]\quad If $\mathcal{T}=\{\emptyset,X\}$, then every sequence is convergent! Every point $x^*\in X$ is a limit point.
+			\end{itemize}
+		\end{example}
+
+		\begin{definition}[Hausdorff space]\label{c1se1def7}
+			Let $(X,\mathcal{T})$ topological space. It is called a \emph{Hausdorff space}, if
+			\[
+				\forall x,y\in X, x\not=y \,\exists U_x,U_y\in\mathcal{T} \text{ s.t. } x\in U_x, y\in U_y\text{ and }U_x\cap U_y = \emptyset.
+			\]
+		\end{definition}
+		\begin{proposition}[Limits in Hausdorff spaces are unique]\label{c1se1pro1}
+			If $(X,\mathcal{T})$ is a Hausdorff space, then every sequence has at most one limit, so either the sequence has no limit or it is unique!
+		\end{proposition}
+		\begin{proof}
+			Proof can be done by contradiction.
+		\end{proof}
+
+		\begin{definition}[Connectedness]\label{c1se1def8}
+			A topological space $(X,\mathcal{T})$ is \emph{connected}, if we cannot write it as a union of 2 disjoint(!) (nonempty) open sets. So, if $X$ is connected and $V\in\mathcal{T}$ is an open set, there is no $\emptyset\not=W\in\mathcal{T}$ with $V\cap W = \emptyset$ and $V\cup W = X$.\newline\newline\noindent
+			$A\subseteq X$ is \emph{connected}, if $A$ is connected in $\mathcal{T}_A$.
+		\end{definition}
