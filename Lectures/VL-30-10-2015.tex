@@ -1,0 +1,253 @@
+\documentclass[../skript.tex]{subfiles}
+
+	\begin{definition}[Continuity]\label{c1se1def10}
+		Let $(X,\mathcal{T}_X),(Y,\mathcal{T}_Y)$ topological spaces, $f:X\to Y$. $f$ is called \emph{continuous}, if
+		\[
+			\forall V\in\mathcal{T}_Y:\, f^{-1}(V)\subset\mathcal{T}_X.
+		\]
+		$f$ is \emph{continuous at a point $x\in X$}, if
+		\[
+			\forall V\text{ open neighbourhoods of }f(x) \,\exists U\text{ open neighbourhood of }x\text{ in }\mathcal{T}_X,\text{ s.t. }f(U)\subset V
+		\]
+		($U\subset f^{-1}(V)$).
+		$f$ is a \emph{homeomorphism} if $f$ is bijective, and $f,f^{-1}$ are continuous.
+	\end{definition}
+
+	\begin{remark}
+		It holds that
+		\begin{IEEEeqnarray*}{rCl}
+			f^{-1}(A\cup B) &=& f^{-1}(A) \cup f^{-1}(B)\\
+			f^{-1}(A\cap B) &=& f^{-1}(A)\cap f^{-1}(B)\\
+			f^{-1}(Y\setminus A) &=& X\setminus f^{-1}(A)
+		\end{IEEEeqnarray*}
+		It is also valid that if
+		\[
+			f_1:(X,\mathcal{T}_X)\to (Y,\mathcal{T}_Y),\quad f_2:(Y,\mathcal{T}_Y)\to (X,\mathcal{T}_X)
+		\]
+		and both are continuous, then $f_2\circ f_1$ is also continuous!\newline\noindent
+		Moreover
+		\[
+			f\text{ continuous} \Leftrightarrow f\text{ continuous at every }x\in X
+		\]
+	\end{remark}
+
+	\begin{example}
+		\begin{itemize}
+
+			\item [a)]\quad Let $\mathcal{T}=2^X$, $f:X\to Y$, let $\mathcal{T}_Y$ continuous. Any function is then continuous:
+		\[
+			\forall V\in\mathcal{T}_Y:\,f^{-1}(V)\in 2^X = \mathcal{T}_X \Rightarrow \text{ continuous!}
+		\]
+		\item [b)]\quad Let now $\mathcal{T}_X = \{\emptyset, X\}$, then the constant function $f(x) = y^*, \forall x\in X$ is contunuous:
+		\[
+			\forall V\in\mathcal{T}_Y:\,f^{-1}(V) = \begin{cases} X&\text{if }y^* \in V\\ \emptyset&\text{if }y^*\not\in V\end{cases}
+		\]
+		\item [c)]\quad If $\mathcal{T}_X = \{\emptyset,X\}$, and $Y$ is Hausdorff, then the emph{only} continuous function is the constant function! (Exercise!)
+		\end{itemize}
+	\end{example}
+
+	We may consider the following: Let $f:(X,\mathcal{T}_X)\to (Y,\mathcal{T}_Y)$ and $A\subset X$. Then we can define the restriction $f_{| A}:A\to Y$. That's why we also need a topology on $A$ (that is the induced topology). If $f$ was continuous, then $f_{| A}$ is also continuous as a function mapping between $(A,\mathcal{T}_A)$ and $(Y,\mathcal{T}_Y)$.
+
+
+	\begin{theorem}[Intermediate value theorem]\label{c1se1thm11}
+		Let $(X,\mathcal{T})$ a connected topological space, $f:(X,\mathcal{T})\to\mathbb{R}$ (on $\mathbb{R}$ we consider the standard topology), and let $f$ be continuous. Assume there is $x,y\in X$ s.t. $f(x)<0<f(y)$. Then there exists a $z\in X$ s.t. $f(z) = 0$.
+	\end{theorem}
+	\begin{proof}
+		Assume that $f(z) \not= 0,\,\forall z\in X$. This would mean that $0\not\in f(X)$. Consider $V=(0,\infty)$, which is open in $\mathcal{T}_{st}$. Then $f^{-1}(V)$ is open (as $f$ is continuous) and is nonempty. We can take the complement of this set:
+		$X = f^{-1}(V)\cup [f^{-1}(V)]^c$, and
+		\[
+			[f^{-1}(V)]^c = f^{-1}(V^c) = f^{-1}\left( (-\infty,0)\right) = f^{-1}\left( \underbrace{(-\infty,0)}_{\text{open}} \right)
+		\]
+		is an open and nonempty set. As the space $X$ is connected, this is not possible!\newline\newline\noindent
+		$\Rightarrow$ There must be $z\in X: f(z) = 0$.
+	\end{proof}
+
+% End of section topologies. Starting with metrics
+\section{Metric spaces}\label{c1se2}
+	
+	\begin{definition}[Metric]\label{c1se2def12}
+		A function $d:X\times X\to [0,\infty),\,(x,y)\mapsto d(x,y)$ is called a \emph{metric}, if
+		\begin{itemize}
+			\item [M1)]\quad $d(x,y) = 0 \Leftrightarrow x=y$ (Non-negativity)
+			\item [M2)]\quad $d(x,y) = d(y,x),\,\forall x,y\in X$ (Symmetry)
+			\item [M3)]\quad $d(x,y) \leq d(x,z)+d(z,y),\,\forall x,y,z\in X$ (Triangle inequality)
+		\end{itemize}
+		If $d$ is a metric on $X$, then the pair $(X,d)$ is called a \emph{metric space}.
+	\end{definition}
+
+	\begin{definition}[Semimetric]\label{c1se2def13}
+		The map $d:X\times X\to [0,\infty)$ is called a \emph{semimetric}, if
+		\begin{itemize}
+			\item [M2)]\quad $d(x,y) = d(y,x),\,\forall x,y\in X$ (Symmetry)
+			\item [M3)]\quad $d(x,y) \leq d(x,z)+d(z,y),\,\forall x,y,z\in X$ (Triangle inequality)
+		\end{itemize}
+		The non-negativity (which would make $d$ a metric) is \underline{not} satisfied!
+	\end{definition}
+	A semimetric $d$ can be extended to a metric as follows:\newline\newline\noindent
+	Take equivalence relation $x\tilde y$, if $d(x,y) = 0$, and then take $\tilde{X} = X_{\setminus \texttildelow}$, so
+	\[
+		[x]\in\tilde{X} \Rightarrow [x] \coloneqq \{z\in X|\,z\tilde x\} = \{z\in X|\,d(x,z) = 0\}.
+	\]
+	Set then 
+	\[
+		\tilde{d}:\tilde{X}\times\tilde{X}\to [0,\infty),\quad \tilde{d}([x],[y]) = d(x,y).
+	\]
+	Check, that $\tilde{d}$ is a metric on $\tilde{X}$!\newline\newline\noindent
+	
+	\begin{example}
+	\begin{itemize}
+		\item [a)]\quad
+		On $X=\mathbb{R}^n$, the map $d_\infty(x,y) \coloneqq \max_{j=1,...,n} |x_j-y_j|$ is a metric.
+		\item [b)]\quad On $X=\mathbb{R}^n$ define for $1\leq p<\infty$: 
+		\[
+			d_p(x,y) \coloneqq \left[ \sum_{j=1}^n |x_j-y_j|^p \right]^{\frac{1}{p}}
+		\]
+		is a metric on $X$, for $p=2$ it is the euclidean metric.
+		\item [c)]\quad Let $X=\ell_\infty \coloneqq \{ a:\mathbb{N}\to\mathbb{R}|\,\text{boudned sequence}\}$. On this space we can define a metric by
+		\[
+			d_\infty(a,b) \coloneqq \sup_{j\in\mathbb{N}} |a_j-b_j|.
+		\]
+		This metric is well-defined as all sequences in $\ell_infty$ are bounded!
+		\item [d)]\quad On 
+		\[
+			\ell_p \coloneqq \{a:\mathbb{N}\to\mathbb{R}|\,\sum_{j=0}^\infty |a_j|^p <\infty\}
+		\] 
+		we can define a metric by
+		\[
+			d_p(a,b)\coloneqq \left[ \sum_{j=0}^\infty |a_j-b_j|^p \right]^{\frac{1}{p}}.
+		\]
+		This expression is finite since we take sequences in $\ell_p$.
+		\item [e)]\quad \emph{Pull-back metric}: Let $X,(Y,\mathcal{T}_Y)$ given, $f:X\to Y$ injective. Then
+		\[
+			d_X(x,y) \coloneqq d_Y(f(x),f(y))
+		\]
+		is a metric on $X$. \newline\noindent\textbf{Exercise:} Show that $d_x$ is a metric iff $f$ is injective and $d_Y$ is a metric!
+		\item [f)]\quad Let $x=\mathbb{R}\cup\{-\infty\}\cup\{+\infty\}$, and $Y=[-1,1]$ with the standard metric $d_Y(y_1,y_2) = |y_1-y_2|$. Let now $f:X\to Y$ given by
+		\[
+			f(x) \coloneqq \begin{cases}-1&x = -\infty \\ \frac{x}{1+|x|}&x\in\mathbb{R}\\1&x=+\infty \end{cases}
+		\]
+		Then we have that $d_x$
+	\end{itemize}
+	\end{example}
+
+	Some definitions
+	\begin{definition}\label{c1se1def14}
+		Let $(X,d)$ metric space, $A,B\subset X$. The \emph{diameter} of $A$ is defined as 
+		\[
+			diam(A) \coloneqq \sup_{x,y\in A} d(x,y).
+		\]
+		The \emph{distance between two sets} is defined as 
+		\[
+			dist(A,B)\coloneqq\inf_{x\in A,y\in B} d(x,y),
+		\]
+		ald the \emph{distance between a set and a point} is defined as
+		\[
+			dist(x,A)\coloneqq \inf_{y\in A}d(x,y).
+		\]
+		A \emph{Neighbourhood of a set} $A$ is given by
+		\[
+			B_r(A) \coloneqq \{y\in X:\,d(y,A)<r\}.
+		\]
+		A \emph{Ball of radius $r$ centered at $x$} is given by
+		\[
+			B(x,r) \coloneqq \{ y\in X|\,d(y,x)<r\}.
+		\]
+	\end{definition}
+	\begin{proposition}[Topology induced by a metric]\label{c1se2thm15}
+		Let $(X,d)$ metric space. Define $\mathcal{T}_d\subset 2^X$ as 
+		\[
+			\mathcal{T}_d \coloneqq \{V\in X|\,\forall x\in V\,\exists\varepsilon>0:\,B(x,\varepsilon)\subset V\}.
+		\]
+		Then, $\mathcal{T}_d$ is a topology on $X$ and $(X,\mathcal{T}_d)$ is a Hausdorff-space.
+	\end{proposition}
+	\begin{proof}
+		$\mathcal{T}_d$ is a topology (easy exercise).\newline\noindent
+		Let $x\not=y, x,y\in X$. We need to show that there are $U_x,U_y\in\mathcal{T}_d$ s.t. $x\in U_x$, $y\in U_y$ and $U_x\cap U_y = emptyset$.\newline\noindent
+		Try with $U_x = B(x,\varepsilon_1)$, $U_y = B(y,\varepsilon_2)$. What is unknown up till now are the values of $\varepsilon_1, \varepsilon_2$. Define $z\in U_x\cap U_y$. This point exists, iff $d(z,x)<\varepsilon_1$ and $d(z,y)<\varepsilon_2$. This means
+		\[
+			d(x,y) \leq d(x,z) + d(z,y) < \varepsilon_1 + \varepsilon_2.
+		\]
+		If $\varepsilon_1 + \varepsilon_2 < d(x,y)$ then $U_x\cap U_y = \emptyset$. This is always possible as we can chose $\varepsilon_1, \varepsilon_2$ so small, that the sum of them is smaller than $d(x,y)$. \newline\newline\noindent
+		Are those balls open in sense of the topology $\mathcal{T}_d$?\newline\noindent
+		It can be checked, that every ball $B(x,r)\in\mathcal{T}_d$ (is open in $\mathcal{T}_d$).   
+	\end{proof}
+
+	\begin{definition}\label{c1se2def16}
+		$B(x,r)$ is called an \emph{open ball of radius $r$ centered in $x$}. A \emph{closed ball of radius $r$ centered in $x$} is given by
+		\[
+			\bar{B}(x,r) \coloneqq \{y\in X|\,d(x,y)\leq r\}.
+		\]
+		The \emph{closure of an open ball} $B(x,r)$ is defined as
+		\[
+			\overline{B(x,r)} = \text{ smallest open set (in the topol.) containing the ball}.
+		\]
+		In general $\overline{B(x,r)}\subseteq \bar{B}(x,r)$.
+ 	\end{definition}
+ 	\begin{example}
+ 		Let $X=\{0,1\}$ and
+ 		\[
+ 			d(x,y) \coloneqq \begin{cases} 1 & x\not=y \\ 0 & x=y\end{cases}
+ 		\]
+ 		Then $B(0,1) = \{z\in X|\,d(0,z)<1\} = \{0\}$ and
+ 		\[
+ 			[B(0,1)]^c = \{1\} = B(1,1).
+ 		\] 
+ 		So $B(0,1)$ is open and $B(0,1)^c$ is also open. But $B(0,1)^c$ is the complement of an open set, so it has to be closed as well. Therefore $B(0,1)$ is open and closed at the same time. One sees easily
+ 		\[
+ 			\overline{B(0,1)} = \{0\},\quad \bar{B}(0,1) = \{0,1\}.
+ 		\]
+ 	\end{example}
+
+ 	Whenever we have a metric space, we can make it a topological space. When does the opposite hold? This property is called \emph{Metrizability} of a topological space
+ 	\begin{definition}\label{c1se2def17}
+ 		A topological space $(X,\mathcal{T})$ s.t. $d:X\times X\to [0,\infty)$ s.t. $(X,d)$ is a metric space, \underline{and} $\mathcal{T}=\mathcal{T}_d$, then the topological space $(X,\mathcal{T})$ is called \emph{metrizable}.
+ 	\end{definition}
+ 	\begin{remark}
+ 		Not all Hausdorff spaces are metrizable!
+ 	\end{remark}
+ 	\begin{remark}
+ 		In a Hausdorff-space $(X,\mathcal{T}_d)$ every convergent sequence has a unique limit.
+ 	\end{remark}
+
+ 	\begin{proposition}\label{c1se1thm17}
+ 		$(X,d)$ metric space (hence $(X,\mathcal{T}_d)$ is Hausdorff-space). Let $x:\mathbb{N}\to X$ a sequence in $X$. The following are equal
+ 		\begin{enumerate}
+ 			\item
+ 				\[
+ 					(x_n)_{n\in\mathbb{N}} \text{ converges to }x^*\in X\text{ in sense of }(X,\mathcal{T}_d)
+ 				\]
+ 			\item
+ 				\[
+ 					\forall \varepsilon > 0\,\exists k_0\geq 0:\,\forall k\geq k_0\, x_k\in \underbrace{B(x^*,\varepsilon)}_{d(x^*,x_k) < \varepsilon}
+ 				\]
+ 		\end{enumerate}
+ 	\end{proposition}
+
+ 	\begin{proof}
+ 		For all $V$ open neighbourhood of $x^*$ all but a finite number of $x_k$ are in $V$.
+ 		\[
+ 			\exists k_0>0\,\forall k\geq k_0\,x_k\in V\text{ iff }V=\text{ball}.
+ 		\]
+ 		For the other direction: $V$ is open neighbourhood of $x^*$. So there exists $\varepsilon>0$ s.t.
+ 		\[
+ 			B(x^*,\varepsilon)\subset V.
+ 		\]
+ 	\end{proof}
+
+ 	Open and closed sets can be characterized using convergent sequences:
+ 	\begin{proposition}\label{c1se2thm18}
+ 		Let $(X,d)$ metric space, $X\subset X$. The following are equivalent
+ 		\begin{enumerate}
+ 			\item $A$ is closed in topology, i.e. $A^c\in\mathcal{T}_d$
+ 			\item $A$ is \emph{sequentially closed}, i.e. all convergent sequences $x:\mathbb{N}\to A$ converge to a point $x^*\in A$
+ 		\end{enumerate}
+ 		Moreover $\forall A\subset X$, the closure $\bar{A}$ (topology) coincides with the \emph{sequential closure}:
+ 		\[
+ 			\bar{A} \coloneqq \{x^*\in X|\,\exists x:\mathbb{N}\to A:\,\lim_{k\to\infty}x_k=x&^*\}.
+ 		\]
+ 	\end{proposition}
+
+ 	\begin{proof}
+ 		Exercise!
+ 	\end{proof}
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.2)  28 OCT 2015 11:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.2)  30 OCT 2015 09:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2014,7 +2014,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
-) [5]
+) (./Lectures/VL-30-10-2015.tex
+Overfull \hbox (6.49313pt too wide) detected at line 11
+\OMS/lmsy/m/n/10.95 8\OML/lmm/m/it/10.95 V[]f\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/
+10.95 x\OT1/lmr/m/n/10.95 ) \OMS/lmsy/m/n/10.95 9\OML/lmm/m/it/10.95 U[]x[]\OMS
+/lmsy/m/n/10.95 T[]\OML/lmm/m/it/10.95 ; []f\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/1
+0.95 U\OT1/lmr/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^Z \OML/lmm/m/it/10.95 V
+ []
+
+[5]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 52.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
+
+ []
+
+
+LaTeX Warning: Command \texttildelow invalid in math mode on input line 87.
+
+
+LaTeX Warning: Command \texttildelow invalid in math mode on input line 87.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+[7]
+Overfull \hbox (0.36794pt too wide) in paragraph at lines 125--126
+[] \T1/lmr/m/it/10.95 Let $\OML/lmm/m/it/10.95 x \OT1/lmr/m/n/10.95 = \U/msb/m/
+n/10.95 R \OMS/lmsy/m/n/10.95 [ f^^@1g [ f\OT1/lmr/m/n/10.95 +\OMS/lmsy/m/n/10.
+95 1g$\T1/lmr/m/it/10.95 , and $\OML/lmm/m/it/10.95 Y \OT1/lmr/m/n/10.95 = [\OM
+S/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 1\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.9
+5 1]$ \T1/lmr/m/it/10.95 with the stan-dard met-ric $\OML/lmm/m/it/10.95 d[]\OT
+1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 y[]; y[]\OT1/lmr/m/n/10.95 ) =
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 169--173
+
+ []
+
+[9] [10]) [11]
 No file skript.bbl.
 \tf@thm=\write6
 \openout6 = `skript.thm'.
@@ -2025,43 +2077,45 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 91.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 91.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 91.
 Package rerunfilecheck Info: File `skript.out' has not changed.
-(rerunfilecheck)             Checksum: 3FC6FBB6AC19663B9E5E84FC15FED4C8;156.
+(rerunfilecheck)             Checksum: 0DA67D07826532E6FC5099141BBF2567;215.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 30657 strings out of 493117
- 600567 string characters out of 6135434
- 675043 words of memory out of 5000000
- 33573 multiletter control sequences out of 15000+600000
- 82776 words of font info for 61 fonts, out of 8000000 for 9000
+ 30761 strings out of 493117
+ 602166 string characters out of 6135434
+ 676043 words of memory out of 5000000
+ 33646 multiletter control sequences out of 15000+600000
+ 87047 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,10n,75p,10413b,950s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
-14/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2014/texmf-dist
-/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc
-/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/
-lm-rm.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb>
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
+cal/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/20
+14/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/texmf-dist/
+fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
+dvips/lm/lm-ts1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-m
+athex.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
-blic/lm/lmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr
-10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/public/lm/lmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
-sfonts/symbols/msbm10.pfb>
-Output written on skript.pdf (7 pages, 249518 bytes).
+l/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/l
+mmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/lm/lmro10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm
+/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on skript.pdf (13 pages, 310923 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
