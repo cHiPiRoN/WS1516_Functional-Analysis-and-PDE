@@ -1,3 +1,243 @@
 \documentclass[../skript.tex]{subfiles}
 
 %Lecture 4.11.2015
+%
+% Still in Chapter 1, section 2 so prefix c1se2___
+
+	Now we want to speak about continuity in metric spaces.
+	\begin{proposition}\label{c1se2thm19}
+		Let $(X,d_X), (Y,d_Y)$ be two metric spaces, and let $f:X\to Y$. Since we have metric spaces, we can define the corresponding topologies $\mathcal{T}_{d_X},\mathcal{T}_{d_Y}$, so we can talk about continuity of $f$ in sense of the topological spaces.\newline\noindent
+		The following statements are equivalent
+		\begin{enumerate}
+			\item $f$ is continuous (in topology) as a map from $(X,\mathcal{T}_{d_X})\to(Y,\mathcal{T}_{d_Y})$.
+			\item $\varepsilon-\delta$ continuity (in metric, pointwise), i.e.
+				\[
+					\forall x\in X,\,\forall \varepsilon>0\,\exists\delta>0\,\text{s.t. }d_x(x,y)<\delta \Rightarrow d_Y(f(x),f(y)) < \varepsilon.
+				\]
+			\item (Sequential continuity)
+				\[
+					\forall x^*\in X\,\forall\text{ sequence }x:\mathbb{N}\to X, k\mapsto x_k:\,x_k\to x^* \Rightarrow f(x_k)\to f(x^*).
+				\]
+		\end{enumerate}
+		(So convergence in topology = convergence in metric)
+	\end{proposition}
+
+	\begin{proof}
+		Exercise!
+	\end{proof}
+
+	We now want to be able to compare metrics.
+
+	\begin{definition}\label{c1se2def20}
+		Let $d_1,d_2$ be two metrics on $X$. We say that $d_1$ is \emph{stronger} than $d_2$, if for the corresponding topologies it holds that $\mathcal{T}_{d_1}$ is stronger (finer) than $\mathcal{T}_{d_2}$. Analogeously $d_1$ is \emph{weaker} than $d_2$, if $\mathcal{T}_{d_1}$ is weaker (coarser) than $\mathcal{T}_{d_2}$.\newline\noindent
+		$d_1$ and $d_2$ are called equivalent, if $\mathcal{T}_{d_1} = \mathcal{T}_{d_2}$.
+	\end{definition}
+
+	We can give charakterizations of stronger / weaker metrics in terms of continuity.
+
+	\begin{proposition}\label{c1se2thm21}
+		Let $d_1,d_2$ two metrics on $X$. The following are equivalent:
+		\begin{itemize}
+			\item [$(1)$]\quad$d_1$ is stronger than $d_2$ (i.e. $\mathcal{T}_{d_2}\subset \mathcal{T}_{d_1}$).
+			\item [$(2)$]\quad$Id:(X,\mathcal{T}_{d_1})\to (X,\mathcal{T}_{d_2})$, with $x\mapsto Id(x) = x$ is continuous.
+			\item [$(3)$]\quad Any sequence that is convergent in $d_1$ must also be convergent in $d_2$.
+			\item [$(4)$]	
+					\[
+						\forall x\in X\,\forall \varepsilon>0\,\exists\delta>0\text{ s.t. }d_1(x,y)<\delta \Rightarrow d_2(x,y)<\varepsilon.
+					\]
+		\end{itemize}
+	\end{proposition}
+
+	\begin{proof}
+		\textbf{(1) $\Leftrightarrow$ (2) } $f:X\to Y $constant $\Leftrightarrow\,\forall V\subset\mathcal{T}_Y=\mathcal{T}_2\,f^{-1}\in \mathcal{T}_X=\mathcal{T}_1$. Then $\forall V\subset \mathcal{T}_2\Rightarrow V\in\mathcal{T}_1$. This means for $f = Id$ that
+		\[
+			f^{-1}(V) = V\in\mathcal{T}_1,\quad\forall V\in\mathcal{T}_2.
+		\]
+		\textbf{(2) $\Leftrightarrow$ (3) } $f$ is constant at $x^*$, if $\forall x_k\to x^*\,\Rightarrow f(x_k)\to f(x^*)$. For $f = Id:(X,\mathcal{T}_1)\to (X,\mathcal{T}_2)$ we have therefore that
+		\[
+			d_1(x_k,x^*) \to 0 \quad \Rightarrow \quad \underbrace{d_2(\underbrace{f(x_k)}_{\eqqcolon x_k},\underbrace{f(x^*)}_{\eqqcolon x^*})}_{=d_2(x_k,x^*)} \to 0
+		\]
+		$f$ is constant $\Leftrightarrow$ $x_k$ converges in $d_1 \Rightarrow x_k$ converges in $d_2$.\newline\newline\noindent
+		\textbf{(2) $\Leftrightarrow$ (4) } $f$ const $\Leftrightarrow$ $\varepsilon-\delta$ continuity:
+		\[
+			\forall x\in X\,\forall\varepsilon > 0\,\exists\delta>0:\,\underbrace{d_X(x,y)}_{=d_1(x,y)} < \delta \Rightarrow \underbrace{d_Y(f(x),f(y))}_{=d_2(x,y)} < \varepsilon \Rightarrow \bigg( d_1(x,y) < \delta \Rightarrow d_2(x,y)<\varepsilon \bigg)
+		\]
+	\end{proof}
+
+	\begin{example}
+		Let $X = \ell_1 \coloneqq \{ x:\mathbb{N}\to\mathbb{R}|\,\sum_{j=0}^\infty |x_j| < \infty\}$. Define
+		\begin{eqnarray*}
+			d_1(x,y) &\coloneqq& \sum_{j=0}^\infty |x_j-y_j|\\
+			d_\infty(x,y) &\coloneqq& \sup_{j\in\mathbb{N}} |x_j-y_j|.
+		\end{eqnarray*}
+		Both metrics are well defined, as no sequence in $\ell_1$ can be divergent.\newline\newline\noindent
+		$d_\infty$ is a weaker metric than $d_1$, if $d_1(x,y)<\delta \Rightarrow \sum_j |x_j-y_j| < \delta$ then $\sup_j|x_j-y_j| < \delta$, i.e. $d_2(x,y) < \delta$.\newline\noindent
+		$d_\infty$ is not equivalent to $d_1$! Take $x^{(k)} = (\underbrace{\frac{1}{k},\frac{1}{k},...,\frac{1}{k}}_{k},0,0,...,0)$. Then
+		\[
+			d_\infty(x^{(k)},0) = \sup_j |x_j^k-0| = \frac{1}{k} \overset{k\to\infty}\to 0,
+		\]
+		that means $x^{(k)}\to 0$ in $d_\infty$! Nevertheless we have in the other metric
+		\[
+			d_1(x^{(k)},0) = \sum_{j=0}^\infty |x_j^{(k)}-0| = k\frac{1}{k}=1,\quad\forall k,
+		\]
+		so $x^{(k)}\cancel{\to} 0$ in $d_1$. \newline\noindent
+		$\Rightarrow d_\infty$ cannot be equivalent to $d_1$!
+	\end{example}
+
+	\begin{definition}[Cauchy sequence]\label{c1se2def22}
+		A sequence $x:\mathbb{N}\to X$ in a metric space $(X,d)$ is a \emph{Cauchy sequence}, if
+		\[
+			\forall\delta>0\,\exists k_0\geq 0:\quad d(x_k,x_q) < \delta,\quad\forall k,q\geq k_0.
+		\]
+	\end{definition}
+	\begin{remark}
+		Any convergent sequence is a Cauchy sequence! The converse does not need to be true.
+	\end{remark}
+
+	\begin{definition}[Complete space]\label{c1se2def23}
+		A metric space $(X,d)$ is a \emph{complete space}, if every Cauchy sequence has a limit in $X$.
+	\end{definition}
+
+	\begin{example}
+		\begin{itemize}
+			\item 		Let $X=\mathbb{Q}$, with the standard metric $d(x,y) = |x-y|$. $(\mathbb{Q},d)$ is not complete!
+			\item 		$(\ell_p,d_p)$ for $1\leq p\leq\infty$ with $d_p(x,y) = (\sum_{j} |x_j-y_j|^p)^{1/p}$ is complete!
+			\item 		$(\ell_1,d_\infty)$ is not complete! Take for $k\in\mathbb{N}$ the sequence $x^{(k)} = (\underbrace{1,\frac{1}{2},\frac{1}{3},...,\frac{1}{k+1}}_{k+1},0,...,0)$,
+						then $d_\infty(x^k,x^{k'}) \sup_j |x_j^k-x_j^{k'}| = \frac{1}{k+2}$, for $k'>k$, and this expression tends to $0$ for $k,k'\to\infty$. Therefore it is a Cauchy sequence. However we have that $d_\infty(x^k,x^*) = \frac{1}{k+2}\to 0$.
+% Think about...
+			\item 		Suppose that $(X,d)$ is complete and let $A\subset X$, s.t. $A\not=X$ and $A$ is dense in $X$, i.e. $\bar{A}=X$. Then $(A,d_A)$
+						 cannot be complete, because 
+						 \[
+						 	\forall x^*\in X\,\exists x:\mathbb{N}\to A:\,x_k\to x^*,
+						 \]
+						 which also has to hold for all $x^*\in X\setminus A$ (by assumption $A\not= X$).
+		\end{itemize}
+	\end{example}
+
+	When can we say that $(A,d_A)$ is complete (for $A\subset X$)?
+
+	\begin{proposition}\label{c1se2thm24}
+		Let $(X,d)$ complete metric space and $A\subset X$ a \underline{closed} subset of $X$. Then $(A,d_A)$ is a complete metric space.
+	\end{proposition}
+	\begin{proof}
+		Let $x:\mathbb{N}\to A$ Cauchy sequence. Then $x$ is a Cauchy-sequence in a complete space $X$. Therefore exists $x^*\in X$ s.t. $x_k\to x^*$ and as $A$ is closed ($\Leftrightarrow$ $A$ sequentially closed) we have that $x^*\in A$. 
+	\end{proof}
+
+	Every noncomplete space can be extended to a complete space, up to an isometry. 
+
+	\begin{definition}[Isometry]\label{c1se2def25}
+		Let $(X,d_X), (Y,d_Y)$ two metric spaces. A function $f:(X,d_X)\to (Y,d_Y)$ is an \emph{isometry}, if 
+		\[
+			d_X(x,y) =d_Y(f(x),f(y)),\quad\forall x,y\in X.
+		\]
+	\end{definition}
+
+	\begin{remark}
+		If for the isometry $f$ we have that $f(x) = f(y) \Rightarrow d_X(x,y) = 0 \Rightarrow x=y$, so an isometry must always be injective! We can even make it bijective by restricting it's image to $f(X)\subseteq Y$, i.e. $(X,d_X)\to (f(X),d_{Y|_{f(X)}})$.\newline\newline\noindent
+		A sequence $x$ is convergent in $X$ iff $f(x)$ is convergent in $f(X)$. \newline\newline\noindent
+		A sequence $x$ is Cauchy sequence in $X$ iff $f(x)$ is Cauchy sequence in $f(X)$.
+	\end{remark}
+
+	\begin{theorem}[Completion]\label{c1se2thm26}
+		Let $(X,d)$ metric space. Then exists a complete space $(\tilde{X},\tilde{d})$ and an isometry $f:(X,d)\to(\tilde{X},\tilde{d})$ s.t. $ \mathcal{J}(X)$, is dense in $\tilde{X}$.
+	\end{theorem}
+
+	\begin{remark}
+		It is not always possible to just complete the space in $X$. However it works (see \cref{c1se2thm26}), if we first map the space using an isometry.
+	\end{remark}
+
+	\begin{proof}
+		Do the proof in 3 steps: First construct $(\tilde{X},\tilde{d})$, then prove that this space is complete. Afterwards construct an embedding of $X$ (deine $\mathcal{J}$).\newline\newline\noindent
+		\textbf{Step 1: } We first define $X^\mathbb{N} \coloneqq \{ x:\mathbb{N}\to X\}$ (the set of sequences in $X$). Now restrict this space to the Cauchy sequences: $\hat{X} \coloneqq \{x\in X^\mathbb{N}|\,x\text{ Cauchy sequence}\}$.\newline\noindent
+		We can now define an equivalence relation $\char`\~$ by 
+		\[
+			x\char`\~ y \,\text{if } \lim_{j\to\infty} d(x_j,y_j) = 0
+		\] 
+		Then define the set of equivalence classes as
+		\[
+			\tilde{X} = \hat{X}/_{\char`\~} = \{[x]\}
+		\]
+		with
+		\[
+			[x] \coloneqq \{y\in\hat{X}|\,x\char`\~y\}.
+		\]
+		Property of $\hat{X}$: $\forall x,y\in\hat{X}$, $a:\mathbb{N}\to\mathbb{R}_+$, $a_j = d(x_j,y_j)$. Then $a$ is a Cauchy sequence in $\mathbb{R}$, so it is convergent!
+		\[
+			{|a_j-a_{j'}|}\to 0,\quad j,j'\to\infty.
+		\] 
+		$x,y$ Cauchy, 
+		so $\forall \delta>0\,\exists j_0,j_0'$ s.t.
+		\[
+			d(x_j,x_j') < \delta\,\quad\forall j,j'\geq j_0
+		\]
+		and 
+		\[
+			d(y_j,y_j') < \delta\,\quad\forall j,j'\geq j_0'.
+		\]
+		Then
+		\[
+			a_j = d(x_j,y_j) \leq \underbrace{d(x_j,x_k)}_{<\delta} + \underbrace{d(x_k,y_k)}_{a_k} + \underbrace{d(y_k,y_j)}_{<\delta},\quad\forall k,j\geq\max\{j_0,j_0\}
+		\]
+		So $a_j \leq 2\delta + a_k,\,\forall j,k\geq \max\{j_0,j_0'\}$ and
+		$a_k \leq 2\delta + a_j\,\forall k,k\geq\max\{j_0,j_0'\}$. Therefore $|a_j-a_k|\to 0$, for $j,k\to\infty$.\newline\noindent
+		We can now define
+		\[
+			\tilde{d} ([x],[y]) \coloneqq \lim_{j\to\infty} d(x_j,y_j).
+		\]
+		This $\tilde{d}$ is well defined:
+		Let $x'\in[x]$. Then $\lim_{j\to\infty} d(x_j',y_j)\leq \lim d(x_j',x_j) + d(x_j,y_j) = \lim_j d(x_j,y_j)$. It is easy to check that $\tilde{d}$ is a metric on $\tilde{X}$.\newline\newline\noindent
+		\textbf{Step 2: } Prove that $(\tilde{X},\tilde{d})$ is complete.\newline\noindent
+		Let $[x^{(k)}]$ (each $x^{(k)}\in\hat{X}$ is Cauchy sequence) be a Cauchy sequence in $\tilde{X}$. Then
+		\[
+			\forall\delta>0\,\exists k_0\geq 0\text{ s.t. } \tilde{d}([x^{(k)}], [x^{(k')}]) < \delta,\quad\forall k,k'\geq k_0.
+		\]
+		Construction of the limit: $x^{(k)}$ (for fixed $k$) is Cauchy in $X$, so
+		\[
+			\forall \delta\,\exists k_0\,\text{ s.t. } d(x_j^{(k)},x_j^{(k')}) < \delta,\quad\forall j,j'\geq k_0.
+		\]
+		Choose now $\delta=\frac{1}{k}$, and $j_k - k_0$. Then
+		\[
+			d(x_j^{(k)}, d_{j_k}^{(k)}) < \frac{1}{k},\quad\forall j\geq j_k.
+		\]
+		Define
+		\[
+			y_k \coloneqq \underbrace{x_{j_k}^{(k)}}_{\text{one element in the seq. }x^{(k)}}
+		\]
+		and
+		\[
+			y \coloneqq (y_k)_{k\in\mathbb{N}}\in X^\mathbb{N}.
+		\]
+		We constructed a sequence in $X$. We need to prove that $y\in\hat{X}$ (then we can define $[y]$) and that $\tilde{d}([x^{(k)}],[y])\to 0$ for $k\to\infty$.\newline\noindent
+		We first show that $y\in\hat{X}$ is Cauchy sequence. Look at
+		\[
+			d(x_k,y_{k'}) < \delta,\quad\forall k,k'\geq j_0.
+		\]
+		For our sequence this is
+		\begin{IEEEeqnarray*}{rCl}
+			d(x^k_{j_k},x^{(k)}_{j_{k'}}) &\leq&  \underbrace{\overbrace{d(x^{(k)}_{j_k},x^{(k)}_j)}^{\text{same seq.}}}_{<\frac{1}{k}} + \overbrace{d(x^{(k)}_j,x^{(k')}_j)}^{\text{same ele., diff. seq.}} + \underbrace{d(x^{(k')}_j,x^{(k)}_{j_k'})}_{<\frac{1}{k'}}\\
+			&\leq& \underbrace{\frac{1}{k} + d(x^{(k)}_j,x^{(k')}_j) + \frac{1}{k'}}_{\forall j\geq \max\{j_k,j_{k'}\}}\\
+			&\leq& \frac{1}{k}+\frac{1}{k}+\underbrace{\lim_{j\to\infty}d(x^{(k)}_j,x^{(k')}_j)}_{\tilde{d}([x^k],[x^{k'}])\overset{\text{Cauchy}}\to 0, k,k'\to\infty}.
+		\end{IEEEeqnarray*}
+		Therefore
+		\[
+			d(y_k,y_{k'}) \to 0,\quad k,k'\to\infty
+		\]
+		so $y\in\hat{X}$.\newline\newline\noindent
+		\textbf{Step 3: } 
+		Consider
+		\begin{IEEEeqnarray*}{rCl}
+			\tilde{d}([x^k],[y]) &=& \lim_{j\to\infty} d(x^k_l,y_l) \\
+			&=& \lim_{j\to\infty} d(x^{(k)}_l, y_{j_l}^{(l)}) \\
+			&\leq& \lim_{l\to\infty} \underbrace d(x^k_l,x^k_{j_k})}_{\leq \frac{1}{k}, f. l\geq j_k} + \underbrace{d(x^k_{j_k},x^l_{j_l})}_{d(y_k,y_l)\to 0\,y\text{ Cauchy}}
+		\end{IEEEeqnarray*}
+		And therefore $[x^k]\to[y]$ in $\tilde{X}$.\newline\noindent
+		$(\tilde{X},\tilde{d})$ is complete. Define $\mathcal{J}:X\to\tilde{X}$  as $\mathcal{J}(x)=[\bar{x}]$, $\bar{x}$ sequence with $\bar{x}_j = x$ for all $j$. Then
+		\[
+			\tilde{d} (\mathcal{J}(x),\mathcal{J}(x')) = \tilde{d}([\bar{x}],[\bar{x'}]) = \lim_{j\to\infty} d(\bar{x}_j,\bar{x}_{j'}) = d(x,x').
+		\]
+		Therefore $\mathcal{J}$ is an isometry!\newline\noindent
+		For $[x]\in\tilde{X}$ define $\bar{x}_j^{(k)} = (x_k),\quad\forall j$. Then $\bar{x}^k$ is a sequence in $f(X)$ and $\tilde{d}([x],[x^k])\to 0$ for $k\to\infty$, so $\mathcal{J}(X)$ is dense in $\tilde{X}$.
+
+	\end{proof}
+
+

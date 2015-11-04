@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.2)  4 NOV 2015 10:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.2)  4 NOV 2015 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1716,7 +1716,10 @@ Package: IEEEtrantools 2012/12/27 V1.3 by Michael Shell
 \@IEEEeqncolcnt=\count198
 \@IEEEsubeqnnumrollback=\count199
 \IEEEPARstartletwidth=\dimen292
-) (./theorems.tex
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
+(./theorems.tex
 \c@dummythm=\count200
 \c@currtheoremctr=\count201
 Normal \count register pool exhausted, switching to extended pool.
@@ -1773,28 +1776,28 @@ Normal \count register pool exhausted, switching to extended pool.
 ) (./defines.tex) (./skript.aux)
 \openout1 = `skript.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 70.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 68.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 70.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1835,7 +1838,7 @@ ictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
-Package hyperref Info: Link coloring ON on input line 68.
+Package hyperref Info: Link coloring ON on input line 70.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1845,9 +1848,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count333
 )
-LaTeX Info: Redefining \ref on input line 68.
-LaTeX Info: Redefining \pageref on input line 68.
-LaTeX Info: Redefining \nameref on input line 68.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
 
 (./skript.out) (./skript.out)
 \@outlinefile=\write4
@@ -1888,44 +1891,44 @@ LaTeX Info: Redefining \nameref on input line 68.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 72.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 74.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 72.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 74.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 72.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 74.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 72.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 74.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 72.
+(Font)              <12> on input line 74.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 72.
+(Font)              <8> on input line 74.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 72.
-LaTeX Font Info:    Try loading font information for U+msa on input line 72.
+(Font)              <6> on input line 74.
+LaTeX Font Info:    Try loading font information for U+msa on input line 74.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+LaTeX Font Info:    Try loading font information for U+msb on input line 74.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 72.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 74.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
@@ -1943,7 +1946,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 ] (./Lectures/VL-28-10-2015.tex
-Chapter 1.
+Chapter 0.
 Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
 t line 6.
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 20.
@@ -1957,7 +1960,7 @@ LaTeX Warning: Reference `c1ex1' on page 1 undefined on input line 22.
 
 
 ]
-Chapter 2.
+Chapter 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
@@ -2066,56 +2069,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--174
 
  []
 
-[9] [10]) (./Lectures/VL-4-11-2015.tex) [11]
+[9] [10]) (./Lectures/VL-4-11-2015.tex [11]
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
+
+ []
+
+
+Overfull \hbox (24.15578pt too wide) detected at line 64
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
+
+ []
+
+[12]
+Overfull \hbox (15.9875pt too wide) in paragraph at lines 105--108
+[]$\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 `[]; d[]\OT1/lmr/m/n/10.95 )$ \T1/lm
+r/m/it/10.95 is not com-plete! Take for $\OML/lmm/m/it/10.95 k \OMS/lmsy/m/n/10
+.95 2 \U/msb/m/n/10.95 N$ \T1/lmr/m/it/10.95 the se-quence $\OML/lmm/m/it/10.95
+ x[] \OT1/lmr/m/n/10.95 = ([]\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 0\OML/lmm
+/m/it/10.95 ; :::; \OT1/lmr/m/n/10.95 0)$\T1/lmr/m/it/10.95 ,
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
+
+ []
+
+) [16]
 No file skript.bbl.
 \tf@thm=\write6
 \openout6 = `skript.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
 (./skript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
 Package rerunfilecheck Info: File `skript.out' has not changed.
-(rerunfilecheck)             Checksum: 0DA67D07826532E6FC5099141BBF2567;215.
+(rerunfilecheck)             Checksum: 7AF1053E6C673665824324B22E2CB1F3;215.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 30776 strings out of 493117
- 602441 string characters out of 6135434
- 676043 words of memory out of 5000000
- 33654 multiletter control sequences out of 15000+600000
- 87047 words of font info for 62 fonts, out of 8000000 for 9000
+ 30889 strings out of 493117
+ 604114 string characters out of 6135434
+ 676888 words of memory out of 5000000
+ 33737 multiletter control sequences out of 15000+600000
+ 87464 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,75p,10413b,950s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
-cal/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/20
-14/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/texmf-dist/
-fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
-dvips/lm/lm-ts1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-m
-athex.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/l
-mmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/public/lm/lmro10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm
-/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on skript.pdf (13 pages, 311439 bytes).
+ 55i,19n,75p,10413b,950s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
+texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2014/
+texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2014/texmf-dist
+/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-m
+athex.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/latxf
+ont/line10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10
+.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/lm/lmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr10.p
+fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/public/lm/lmro10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/lm/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy
+6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on skript.pdf (18 pages, 348338 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
+ 84 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 

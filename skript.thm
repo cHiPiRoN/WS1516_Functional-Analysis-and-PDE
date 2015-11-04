@@ -1,35 +1,52 @@
 \contentsline {example}{{Example}{1}{}}{1}{example.1}
-\contentsline {definition}{{Definition}{2.1}{Topology}}{3}{dummythm.2.1}
-\contentsline {remark}{{Remark}{2.2}{}}{3}{dummythm.2.2}
-\contentsline {definition}{{Definition}{2.3}{Coarser / finer topologies}}{3}{dummythm.2.3}
+\contentsline {definition}{{Definition}{1.1}{Topology}}{3}{dummythm.1.1}
+\contentsline {remark}{{Remark}{1.2}{}}{3}{dummythm.1.2}
+\contentsline {definition}{{Definition}{1.3}{Coarser / finer topologies}}{3}{dummythm.1.3}
 \contentsline {example}{{Example}{2}{}}{3}{example.2}
-\contentsline {remark}{{Remark}{2.4}{}}{4}{dummythm.2.4}
-\contentsline {definition}{{Definition}{2.5}{Closure / boundary of a set}}{4}{dummythm.2.5}
-\contentsline {definition}{{Definition}{2.6}{dense set / separable set}}{4}{dummythm.2.6}
-\contentsline {definition}{{Definition}{2.7}{open neighbourhood}}{4}{dummythm.2.7}
-\contentsline {definition}{{Definition}{2.8}{Convergence in topology}}{5}{dummythm.2.8}
+\contentsline {remark}{{Remark}{1.4}{}}{4}{dummythm.1.4}
+\contentsline {definition}{{Definition}{1.5}{Closure / boundary of a set}}{4}{dummythm.1.5}
+\contentsline {definition}{{Definition}{1.6}{dense set / separable set}}{4}{dummythm.1.6}
+\contentsline {definition}{{Definition}{1.7}{open neighbourhood}}{4}{dummythm.1.7}
+\contentsline {definition}{{Definition}{1.8}{Convergence in topology}}{5}{dummythm.1.8}
 \contentsline {example}{{Example}{3}{}}{5}{example.3}
-\contentsline {definition}{{Definition}{2.9}{Hausdorff space}}{5}{dummythm.2.9}
-\contentsline {proposition}{{Proposition}{2.10}{Limits in Hausdorff spaces are unique}}{5}{dummythm.2.10}
+\contentsline {definition}{{Definition}{1.9}{Hausdorff space}}{5}{dummythm.1.9}
+\contentsline {proposition}{{Proposition}{1.10}{Limits in Hausdorff spaces are unique}}{5}{dummythm.1.10}
 \contentsline {proof}{{Proof}{1}{}}{5}{proof.1}
-\contentsline {definition}{{Definition}{2.11}{Connectedness}}{5}{dummythm.2.11}
-\contentsline {definition}{{Definition}{2.12}{Continuity}}{6}{dummythm.2.12}
-\contentsline {remark}{{Remark}{2.13}{}}{6}{dummythm.2.13}
+\contentsline {definition}{{Definition}{1.11}{Connectedness}}{5}{dummythm.1.11}
+\contentsline {definition}{{Definition}{1.12}{Continuity}}{6}{dummythm.1.12}
+\contentsline {remark}{{Remark}{1.13}{}}{6}{dummythm.1.13}
 \contentsline {example}{{Example}{4}{}}{6}{example.4}
-\contentsline {theorem}{{Theorem}{2.14}{Intermediate value theorem}}{6}{dummythm.2.14}
+\contentsline {theorem}{{Theorem}{1.14}{Intermediate value theorem}}{6}{dummythm.1.14}
 \contentsline {proof}{{Proof}{2}{}}{7}{proof.2}
-\contentsline {definition}{{Definition}{2.15}{Metric}}{7}{dummythm.2.15}
-\contentsline {definition}{{Definition}{2.16}{Semimetric}}{7}{dummythm.2.16}
+\contentsline {definition}{{Definition}{1.15}{Metric}}{7}{dummythm.1.15}
+\contentsline {definition}{{Definition}{1.16}{Semimetric}}{7}{dummythm.1.16}
 \contentsline {example}{{Example}{5}{}}{8}{example.5}
-\contentsline {definition}{{Definition}{2.17}{}}{9}{dummythm.2.17}
-\contentsline {proposition}{{Proposition}{2.18}{Topology induced by a metric}}{9}{dummythm.2.18}
+\contentsline {definition}{{Definition}{1.17}{}}{9}{dummythm.1.17}
+\contentsline {proposition}{{Proposition}{1.18}{Topology induced by a metric}}{9}{dummythm.1.18}
 \contentsline {proof}{{Proof}{3}{}}{9}{proof.3}
-\contentsline {definition}{{Definition}{2.19}{}}{10}{dummythm.2.19}
+\contentsline {definition}{{Definition}{1.19}{}}{10}{dummythm.1.19}
 \contentsline {example}{{Example}{6}{}}{10}{example.6}
-\contentsline {definition}{{Definition}{2.20}{}}{10}{dummythm.2.20}
-\contentsline {remark}{{Remark}{2.21}{}}{10}{dummythm.2.21}
-\contentsline {remark}{{Remark}{2.22}{}}{10}{dummythm.2.22}
-\contentsline {proposition}{{Proposition}{2.23}{}}{10}{dummythm.2.23}
+\contentsline {definition}{{Definition}{1.20}{}}{10}{dummythm.1.20}
+\contentsline {remark}{{Remark}{1.21}{}}{10}{dummythm.1.21}
+\contentsline {remark}{{Remark}{1.22}{}}{10}{dummythm.1.22}
+\contentsline {proposition}{{Proposition}{1.23}{}}{10}{dummythm.1.23}
 \contentsline {proof}{{Proof}{4}{}}{11}{proof.4}
-\contentsline {proposition}{{Proposition}{2.24}{}}{11}{dummythm.2.24}
+\contentsline {proposition}{{Proposition}{1.24}{}}{11}{dummythm.1.24}
 \contentsline {proof}{{Proof}{5}{}}{11}{proof.5}
+\contentsline {proposition}{{Proposition}{1.25}{}}{11}{dummythm.1.25}
+\contentsline {proof}{{Proof}{6}{}}{11}{proof.6}
+\contentsline {definition}{{Definition}{1.26}{}}{12}{dummythm.1.26}
+\contentsline {proposition}{{Proposition}{1.27}{}}{12}{dummythm.1.27}
+\contentsline {proof}{{Proof}{7}{}}{12}{proof.7}
+\contentsline {example}{{Example}{7}{}}{12}{example.7}
+\contentsline {definition}{{Definition}{1.28}{Cauchy sequence}}{13}{dummythm.1.28}
+\contentsline {remark}{{Remark}{1.29}{}}{13}{dummythm.1.29}
+\contentsline {definition}{{Definition}{1.30}{Complete space}}{13}{dummythm.1.30}
+\contentsline {example}{{Example}{8}{}}{13}{example.8}
+\contentsline {proposition}{{Proposition}{1.31}{}}{14}{dummythm.1.31}
+\contentsline {proof}{{Proof}{8}{}}{14}{proof.8}
+\contentsline {definition}{{Definition}{1.32}{Isometry}}{14}{dummythm.1.32}
+\contentsline {remark}{{Remark}{1.33}{}}{14}{dummythm.1.33}
+\contentsline {theorem}{{Theorem}{1.34}{Completion}}{14}{dummythm.1.34}
+\contentsline {remark}{{Remark}{1.35}{}}{14}{dummythm.1.35}
+\contentsline {proof}{{Proof}{9}{}}{14}{proof.9}

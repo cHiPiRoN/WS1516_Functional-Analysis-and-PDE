@@ -59,6 +59,8 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+\usepackage{cancel}
+
 % Theorems
 \input{theorems.tex}
 
@@ -77,6 +79,9 @@
 
 \mainmatter
 \numberwithin{equation}{chapter}
+
+%Set chapter 1 to be an introduction, i.e. chapter number is 0, not 1.
+\setcounter{chapter}{-1}
 
 \subfile{Lectures/VL-28-10-2015}
 \subfile{Lectures/VL-30-10-2015}
