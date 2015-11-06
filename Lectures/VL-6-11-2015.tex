@@ -1,0 +1,311 @@
+\documentclass[../skript.tex]{subfiles}
+
+% Lecture of 11.6.2015
+% still in chapter 1 section 2, so prefix is        c1se2___
+% now changing chapter so prefixs is                c1se3___
+
+  	\section{Normed spaces}\label{c1se3}
+  		To define a \emph{normed space}, the set $X$ must at least be a vector space (always over $\mathbb{R}$ or $\mathbb{C}$).
+
+  		\begin{definition}[Normed space]\label{c1se3def27}
+  			Let $X$ be a $\mathbb{K}$-vector space, for $\mathbb{K}\in\{\mathbb{R},\mathbb{C}\}$. A map $\|\cdot\|:X\to[0,\infty)$ with $x\mapsto \|x\|$ is called a \emph{norm}, if
+  			\begin{itemize}
+  				\item [$N_1$)]\quad Definiteness $\|X\|=0 \Rightarrow x=0$
+  				\item [$N_2$)]\quad Homogenity $\|\alpha x\| = |\alpha|\,\|x\|,\forall x\in X,\forall \alpha\in\mathbb{K}$
+  				\item [$N_3$)]\quad Triangle inequality $\|x+y\|\leq \|x\|+\|y\|,\quad\forall x,y\in X$
+  			\end{itemize}
+  			In this case, the pair $(X,\|\cdot\|)$ is called a \emph{normed space}.
+  		\end{definition}
+
+  		\begin{remark}
+  			\begin{enumerate}
+  				\item $\|0\| = \|0x\| = 0 \|x\| = 0$.
+  				\item A \emph{seminorm} just satisfies properties $N_2$ and $N_3$, but not $N_1$. We can extend a seminorm $\|\cdot\|$ to a norm by taking
+  				\[
+  					X/\mathtt{\sim},\quad x\mathtt{\sim} y \text{ if } \|x-y\| = 0
+  				\]
+  				analogeously to what we did for a semimetric in order to extend it to a metric.
+ 				\item
+  					Let $(X,\|\cdot\|)$ be a normed space. The function
+  					\begin{IEEEeqnarray*}{rCl}
+  						d:&X\times X\to &[0,\infty)\\
+  						&(x,y)\mapsto&d(x,y) = \|x-y\|
+  					\end{IEEEeqnarray*}
+  					then defines a metric on $X$.
+  			\end{enumerate}
+  		\end{remark}
+
+  		Notions of convergence, continuity, completeness are defined on normed spaces, using the metric $d$, induced by the norm $\|\cdot\|$ (see remark above).\newline\newline\noindent
+  		We have an additional property:
+  		\[
+  			\|x-y\| \geq |\,\|x\|-\|y\|\,|
+  		\]
+  		This holds because of putting the following 2 estimates together:
+  		\begin{IEEEeqnarray*}{rCl}
+  			\|x\| &\leq& \|x-y\|+\|y\|,\\
+  			\|y\| &\leq& \|x-y\|+\|x\|;
+  		\end{IEEEeqnarray*}
+
+  		\begin{definition}[Banach space]\label{c1se3def28}
+  			A normed space $(X,\|\cdot\|)$ is called a \emph{Banach space}, if $X$ is complete under the induced metric $d$ (by the norm $\|\cdot\|$).
+  		\end{definition}
+
+  		\begin{example}
+  		The spaces
+  			\begin{IEEEeqnarray*}{rCl}
+  				\ell_p &\coloneqq& \{x:\mathbb{N}\to\mathbb{R}|\,\sum_{j\in\mathbb{N}} |x_j|^p < \infty\},\quad 1\leq p<\infty \\
+  				\ell_\infty &\coloneqq& \{x:\mathbb{N}\to\mathbb{R}|\,\sup_{j\in\mathbb{N}} |x_j| < \infty\}
+  			\end{IEEEeqnarray*}
+  			can be equipped with the norm
+  			\[
+  				\|x\|_p \coloneqq \left( \sum_{j\in\mathbb{N} |x_j|^p} \right)^{\frac{1}{p}},
+  			\]
+  			respectively
+  			\[
+  				\|x\|_\infty \coloneqq \sup_{j\in\mathbb{N}} |x_j|.
+  			\]
+  			The spaces $(\ell_p,\|\cdot\|_p)$ is a Banach space for $1\leq p \leq \infty$.
+  		\end{example}
+
+  		We also want to be able to compare norms.
+  		\begin{definition}\label{c1se3def29}
+  			Let $\|\cdot\|_1,\|\cdot\|_2$ be two norms on $X$. We say that $\|\cdot\|_1$ is \emph{stronger} than $\|\cdot\|_2$, if $d_1$ is stronger than $d_2$ (i.e. for the corresponding topologies we have $\mathcal{T}_1\subset\mathcal{T}_2$).\newline\noindent
+  			$\|\cdot\|_1$ is \emph{weaker} than $\|\cdot\|_2$ if $d_1$ is weaker than $d_2$.\newline\noindent
+  			$\|\cdot\|_1$ and $\|\cdot\|_2$ are \emph{equivalent}, if $d_1,d_2$ are equivalent.
+  		\end{definition}
+
+  		\begin{proposition}\label{c1se3thm30}
+  			Let $\|\cdot\|_1,\|\cdot\|_2$ be two norms on $X$. Then $\|\cdot\|_1$ is stronger than $\|\cdot\|_2$, if there is a constant $c>0$, s.t.
+  			\[
+  				\|x\|_2 \leq C\|x\|_1,\quad\forall x\in X.
+  			\]
+  			$\|\cdot\|_1,\|\cdot\|_2$ are equivalent, if there are $c,C>0$ s.t. 
+  			\[
+  				c\|x\|_1 \leq \|x\|_2 \leq C\|x\|_1,\quad\forall x\in X.
+  			\]
+  		\end{proposition}
+
+  		\begin{proof}
+  			$\|\cdot\|_1$ is stronger than $\|\cdot\|_2$. This means that
+  			\[
+  				\forall x\in X\,\forall \varepsilon > 0 \,\exists \delta_{x,\varepsilon} > 0
+  			\]
+  			s.t.
+  			\[
+  				\underbrace{d_1(x,y)}_{\|x-y\|_1} < \delta_{x,\varepsilon} \Rightarrow \underbrace{d_2(x,y)}_{\|x-y\|_2} < \varepsilon.
+  			\]
+  			So, for fix $x=0, \varepsilon = 1$ there is $\delta >0$ s.t.
+  			\[
+  				\|y\|_1 < \delta \Rightarrow \|y\|_2 < 1.
+  			\]
+  			For any $y\in X$ let $z_\varepsilon \coloneqq y \frac{\delta}{\|y\|_1 + \varepsilon}$, for $\varepsilon > 0$. Using this we have
+  			\[
+  				\|z_\varepsilon\|_1 \leq \delta \Rightarrow \|z_\varepsilon\|_2 < 1
+  			\]
+  			so
+  			\[
+  				\|y\|_2 \leq \frac{1}{\delta}\left(\|y\|_1+\varepsilon\right),\quad\forall \varepsilon > 0.
+  			\]
+  			For $\varepsilon\to 0$ we have then that $\|y\|_2 \leq \frac{1}{\delta}\|y\|_1$.
+  		\end{proof}
+
+  	\section{Hilbert spaces}\label{c1se4}
+
+  			We want to be able to measure angles between vectors, i.e. a scalar product.
+  			\begin{definition}[Sesquilinear form]\label{c1se4def31}
+  				Let $X$ be a $\mathbb{K}$-vector space. A map
+  				\[
+  					\langle\cdot,\cdot\rangle:X\times X\to\mathbb{K},\quad (x,y)\mapsto\langle x,y\rangle
+  				\]
+  				is called a \emph{sesquilinear form}, if it is linear in the first, and antilinear in the second argument, i.e.
+  				\begin{IEEEeqnarray*}{rCl}
+  					\langle\alpha x,y\rangle &=& \alpha\langle x,y\rangle\\
+  					\langle x,\alpha y\rangle &=& \bar{\alpha}\langle x,y\rangle\\
+  					\langle x+x',y\rangle &=& \langle x,y\rangle + \langle x',y\rangle\\
+  					\langle x,y+y'\rangle &=& \langle x,y\rangle + \langle x,y'\rangle.
+  				\end{IEEEeqnarray*}
+  				A sesquilinear form is called
+  				\begin{itemize}
+  					\item \emph{symmetric}, if $\langle x,y\rangle = \bar{\langle x,y\rangle},\quad\forall x,y\in X$;
+  					\item \emph{positive semidefinite}, if $\langle x,x\rangle \geq 0,\quad\forall x\in X$;
+  					\item \emph{positive definite}, if $\langle x,x\rangle\geq 0$ and $\langle x,x\rangle = 0$ iff $x=0$.
+  				\end{itemize}
+  			\end{definition}
+  			\textbf{Notations for the sesquilinear form: } $\langle\cdot,\cdot\rangle, (\cdot,\cdot), (\cdot,\cdot)_X$ depending on the situation.\newline\newline\noindent
+  			In the following we assume the symmetry and positive semidefiniteness!\newline\newline\noindent
+
+  			\begin{lemma}\label{c1se4thm2}
+  				Let $X$ be a $\mathbb{K}$-vector space and $\langle\cdot,\cdot\rangle$ be a sesquilinearform, symmetrical and positive semidefinite. Set
+  				\[
+  					\|\cdot\|:X\to [0,\infty),\quad x\mapsto \|x\| \coloneqq \sqrt{\langle x,x\rangle}.
+  				\]
+  				This is well defined, since $\langle x,x\rangle \geq 0,\,\forall x\in X$.\newline\noindent
+  				Then we have
+  				\begin{enumerate}
+  					\item Homogenity $\|\alpha x\| = |\alpha|\,\|x\|,\quad\forall x\in X,\forall\alpha\in\mathbb{C}$
+  					\item Cauchy-Schwarz inequality
+  						\[
+  							|\langle x,y\rangle| \leq \|x\|\,\|y\|,\quad\forall x,y\in X
+  						\]
+  					\item Triangle inequality
+  						\[
+  							\|x+y\| \leq \|x\| + \|y\|,\quad\forall x,y\in X
+  						\]
+  					\item Parallelogram identity
+  						\[
+  							\|x+y\|^2 + \|x-y\|^2 = 2\|x\|^2 + 2\|y\|^2,\quad\forall x,y\in X
+  						\]
+  				\end{enumerate}
+  			\end{lemma}
+  				From above properties 1 and 3 we know that $\|\cdot\|$ is a seminorm. It is even a norm, if $\langle\cdot,\cdot\rangle$ is positive definite.
+  			\begin{proof}
+  				Exercise!
+  			\end{proof}
+
+  			\begin{definition}\label{c1se4def33}
+  				A positive definite, symmetrical sesquilinear form on $X$ is called a \emph{scalar product}.\newline\noindent
+  				The pair $(X,\langle\cdot,\cdot\rangle)$ is called a \emph{Pre-Hilbert space}.
+  			\end{definition}
+
+  			\begin{remark}
+  				Scalar product $\Rightarrow$ norm $\Rightarrow$ distance $\Rightarrow$ Topology.
+			\end{remark}
+
+			\begin{lemma}\label{c1se4thm4}
+				Let $(X,\|\cdot\|)$ normed space. Then there exists a scalar product $\langle\cdot,\cdot\rangle$ on $X$, s.t.
+				\[
+					\|x\| = \sqrt{\langle x,x\rangle}
+				\]
+				iff $\|\cdot\|$ satisfies the parallelogram identity 
+				\[
+					\|x+y\| + \|x-y\| = 2\|x\|^2 + 2\|y\|^2,\quad\forall x,y\in X.
+				\]
+			\end{lemma}
+			\begin{proof}
+				Exercise!
+			\end{proof}
+
+			\begin{definition}[Hilbert space]\label{c1se4def34}
+				A \emph{Hilbert space} is a Pre-Hilbert space $(X,\langle\cdot,\cdot\rangle)$ (with a scalar-product $\langle\cdot,\cdot\rangle$) that is complete under the norm (i.e. the metric) induced by the scalar product.
+			\end{definition}
+
+\chapter{Function spaces}\label{c2}
+	
+	\section{Bounded functions}\label{c2se1}
+
+		We consider functions $f:X\to Y$, where $X$ is some set and $Y$ is at least a normed space.
+
+		\begin{definition}\label{C2se1def1}
+			Let $X$ be a set and $Y$ a normed $\mathbb{K}$-vector space $(X,\|\cdot\|)$. The \emph{space of bounded functions} is defined as
+			\[
+				B(X;Y) \coloneqq \{f:X\to Y|\,\sup_{x\in X} \|f(x)\|<\infty\}.
+			\]
+		\end{definition}
+
+		\begin{remark}
+			\begin{enumerate}
+				\item $Y$ is a vector space, so $B(X;Y)$ is a $\mathbb{K}$-vector space, with
+						\[
+							(f+g)(x) = f(x) + g(x),\quad (\alpha f)(x) = \alpha f(x)
+						\]
+				\item Let $\|\cdot\|:B(X;Y)\to [0,\infty)$ with $f\mapsto \|f\| \coloneqq \sup_{x\in X}\|f(x)\|$. This defines a norm on $B(X;Y)$ (Exercise!), so $(B(X;Y),\|\cdot\|)$ is a normed space! 
+			\end{enumerate}			
+		\end{remark}
+
+		Is the space $(B(X;Y),\|\cdot\|)$ complete?
+
+		\begin{proposition}\label{c2se1thm2}
+			Let $Y$ be a Banach space. Then $(B(X;Y),\|\cdot\|)$ is a Banach space.
+		\end{proposition}
+
+		\begin{proof}
+			We need to show that every Cauchy sequence has a limit in $B(X;Y)$. Let $f_n$ be a Cauchy sequence in $B(X;Y)$. This means that
+			\[
+				\forall\varepsilon>0\,\exists k_0\geq 0:\quad\forall n,m\geq k_0\,\|f_n-f_m\|<\varepsilon.
+			\]
+			This shows that
+			\[
+				\sup_{x} \|f_n(x)-f_m(x)\| < \varepsilon,
+			\]
+			and therefore $f_n(x)$ is a Cauchy-sequence in $Y$, for all $x\in X$. As $Y$ is complete (as it is Banach space), for each $x\in X$ there is $f(x)\in Y$ s.t.
+			\[
+				f_n(x)\to f(x).
+			\]
+			Remark: We know that $f_n$ is Cauchy-sequence. Thus, for $\varepsilon = 1$ there is $k_0\geq 0$ s.t.
+			\[
+				\|f_n-f_m\| < 1,\quad\forall n,m\geq k_0,
+			\]
+			and
+			\[
+				\|f_n\| \leq  \overbrace{\|f_n-f_{k_0}}^{<1}+\overbrace{\|f_{k_0}\|}^{M},\quad\forall n\geq k_0.
+			\]
+			$\Rightarrow$ $\|f_n\| \leq 1+M,\quad\forall n\geq k_0$ which means that $\|f_n(x)\|\leq 1+M$ for all $x\in X, n\geq k_0$.\newline\newline\noindent
+			Using this remark, we can do the following
+			\begin{IEEEeqnarray*}{rCl}
+				\|f(x)\| &\leq& \underbrace{\|f(x)-f_n(x)\|}_{\to 0,\text{ for }n\to\infty}+\underbrace{\|f_n(x)\|}_{\leq 1+M}.
+			\end{IEEEeqnarray*}
+			There is $n$ s.t. $\|f(x)-f_n(x)\| < 1 \Rightarrow\, \|f(x)\| \leq 2+M \Rightarrow\,\|f\| = \sup_{x}\|f(x)\|\leq 2+M$.
+			Therefore $f\in B(X;Y)$.\newline\newline\noindent
+			Does $f_n\to f$ hold? I.e. $\forall \varepsilon>0\,\exists n_0\geq 0$ s.t. 
+			\[
+				\sup_{x}\|f_n(x)-f(x)\| = \|f_n-f\| < \varepsilon,\quad\forall n\geq n_0.
+			\]
+			As $f_n$ is Cauchy sequence there is $n_0$ independent of $x$, s.t.
+			\[
+				\forall n,m\geq n_0:\quad\sup_{x}\|f_n(x)-f_m(x)\| < \frac{\varepsilon}{2}.
+			\]
+			$\forall x\in X:\,f_n(x)\to f(x)$, hence $\exists n_x\geq 0$ s.t. $\forall n\geq n_x$ it holds that
+			\[
+				\|f_n(x) - f(x) \| < \frac{\varepsilon}{2}.
+			\]
+			Take any $n\geq n_0$. Then for $n\geq n_x \Rightarrow \|f_n(x)-f(x)\|<\frac{\varepsilon}{2}$. Moreover we have for $n_0\leq n<n_x$ that
+			\[
+				\|f_n(x)-f(x)\| \leq \|f_m(x) - f_n(x) \| _ \|f_m(x)-f(x)\|,\quad\forall m.
+			\]
+			As $m$ is freely chosen, we can especially take $m\geq n_x > n_0$. Then
+			\[
+				\|f_n(x)-f(x)\| \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+			\]
+			This means that $\forall x\in X:\,\|f_n(x)-f(x)\|<\varepsilon$, so $\|f_n-f\| < \varepsilon$ and therefore $f_n\to f$.
+		\end{proof}
+
+		\textbf{Important special case: } $Y=\mathbb{K}\in\{\mathbb{R},\mathbb{C}\}$. Then we write $B(X;\mathbb{K}) = B(X)$.\newline\newline\noindent
+		We now want to know, when $B(X;Y)$ is separable. In general, this is not the case.
+		\begin{proposition}\label{c2se1thm3}
+			The space $B(X;\mathbb{R})$ is separable iff $X$ is finite. In particular
+			\[
+				\ell_\infty = B(\mathbb{N};\mathbb{R}) = \text{ set of bounded sequences }
+			\]
+			is not separable! 
+		\end{proposition}
+		\begin{proof}
+			Exercise! 
+% Assume that there is a countable, dense subset => Contradiction
+		\end{proof}
+
+		%New sect
+	\section{Continuous functions}\label{c2se2}
+		We again consider functions of the form $f:X\to Y$, where $Y$ is a vector space. For considering continuous functions, we need at least a topology on $X$.
+
+		\begin{definition}\label{c2se2def4}
+			Let $(X,\mathcal{T})$ be a topological, and $(Y,\|\cdot\|)$ a normed space. The \emph{space of continuous functions} $X\to Y$ is defined as
+			\[
+				C(X;Y) \coloneqq \{f:X\to Y|\,f\text{ continuous}\}.
+			\]
+			The \emph{set of bounded continuous functions} $X\to Y$ is defined as
+			\[
+				C_b(X;Y) \coloneqq B(X;Y)\cap C(X;Y).
+			\]
+		\end{definition}
+
+		\begin{remark}
+			$(B(X;Y),\|\cdot\|)$ is complete. Now we have $(C_b(X;Y),\|\cdot\|)$ (with the norm of $B(X;Y)$ restricted to continuous functions), which is again a normed space.
+		\end{remark}
+
+		Is the space $(C(X;Y),\|\cdot\|)$ complete?
+
+		\begin{theorem}\label{c2se2thm5}
+			Let $Y$ be a Banach space. Then, $(C(X,Y,\|\cdot\|)$ is Banach space too.
+		\end{theorem}
+
+

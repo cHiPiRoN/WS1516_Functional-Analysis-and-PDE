@@ -228,7 +228,7 @@
 		\begin{IEEEeqnarray*}{rCl}
 			\tilde{d}([x^k],[y]) &=& \lim_{j\to\infty} d(x^k_l,y_l) \\
 			&=& \lim_{j\to\infty} d(x^{(k)}_l, y_{j_l}^{(l)}) \\
-			&\leq& \lim_{l\to\infty} \underbrace d(x^k_l,x^k_{j_k})}_{\leq \frac{1}{k}, f. l\geq j_k} + \underbrace{d(x^k_{j_k},x^l_{j_l})}_{d(y_k,y_l)\to 0\,y\text{ Cauchy}}
+			&\leq& \lim_{l\to\infty} \underbrace{d(x^k_l,x^k_{j_k})}_{\leq \frac{1}{k}, f. l\geq j_k} + \underbrace{d(x^k_{j_k},x^l_{j_l})}_{d(y_k,y_l)\to 0\,y\text{ Cauchy}}
 		\end{IEEEeqnarray*}
 		And therefore $[x^k]\to[y]$ in $\tilde{X}$.\newline\noindent
 		$(\tilde{X},\tilde{d})$ is complete. Define $\mathcal{J}:X\to\tilde{X}$  as $\mathcal{J}(x)=[\bar{x}]$, $\bar{x}$ sequence with $\bar{x}_j = x$ for all $j$. Then
@@ -237,7 +237,5 @@
 		\]
 		Therefore $\mathcal{J}$ is an isometry!\newline\noindent
 		For $[x]\in\tilde{X}$ define $\bar{x}_j^{(k)} = (x_k),\quad\forall j$. Then $\bar{x}^k$ is a sequence in $f(X)$ and $\tilde{d}([x],[x^k])\to 0$ for $k\to\infty$, so $\mathcal{J}(X)$ is dense in $\tilde{X}$.
-
 	\end{proof}
-
 
