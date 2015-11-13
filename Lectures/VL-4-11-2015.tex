@@ -149,17 +149,17 @@
 	\begin{proof}
 		Do the proof in 3 steps: First construct $(\tilde{X},\tilde{d})$, then prove that this space is complete. Afterwards construct an embedding of $X$ (deine $\mathcal{J}$).\newline\newline\noindent
 		\textbf{Step 1: } We first define $X^\mathbb{N} \coloneqq \{ x:\mathbb{N}\to X\}$ (the set of sequences in $X$). Now restrict this space to the Cauchy sequences: $\hat{X} \coloneqq \{x\in X^\mathbb{N}|\,x\text{ Cauchy sequence}\}$.\newline\noindent
-		We can now define an equivalence relation $\char`\~$ by 
+		We can now define an equivalence relation $\mathtt{\sim}$ by 
 		\[
-			x\char`\~ y \,\text{if } \lim_{j\to\infty} d(x_j,y_j) = 0
+			x\mathtt{\sim} y \,\text{if } \lim_{j\to\infty} d(x_j,y_j) = 0
 		\] 
 		Then define the set of equivalence classes as
 		\[
-			\tilde{X} = \hat{X}/_{\char`\~} = \{[x]\}
+			\tilde{X} = \hat{X}/_{\mathtt{\sim}} = \{[x]\}
 		\]
 		with
 		\[
-			[x] \coloneqq \{y\in\hat{X}|\,x\char`\~y\}.
+			[x] \coloneqq \{y\in\hat{X}|\,x\mathtt{\sim}y\}.
 		\]
 		Property of $\hat{X}$: $\forall x,y\in\hat{X}$, $a:\mathbb{N}\to\mathbb{R}_+$, $a_j = d(x_j,y_j)$. Then $a$ is a Cauchy sequence in $\mathbb{R}$, so it is convergent!
 		\[
