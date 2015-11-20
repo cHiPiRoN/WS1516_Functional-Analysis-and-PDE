@@ -1,0 +1,221 @@
+\documentclass[../skript.tex]{subfiles}
+
+% Still in chapter 2 section 4, so prefix 			c2se4___
+
+	\begin{proof}
+		Let $1<p<\infty$. Then
+		\begin{IEEEeqnarray*}{rCl}
+			\left[\int_{\mathbb{R}^n} \left(|f*g|(x)\right)^p\,dx\right] &=& \int \left|\int f(y)g(x-y)\,dy \right|^p\,dx\\
+			&\leq& \int \left( \int |f(y)|\,|g(x-y)|\,dy \right)^p\,dx.
+		\end{IEEEeqnarray*}
+		It always holds that
+		\[
+			|f(x)|\,|g(x-y)| = |f(y)|\,|g(x-y)|^{\frac{1}{p}}\,|g(x-y)|^{\frac{1}{q}},\quad\text{ for }\frac{1}{p} + \frac{1}{q} = 1.
+		\]
+		Therefore 
+		\begin{IEEEeqnarray*}{rCl}
+			 \int \left( \int |f(y)|\,|g(x-y)|\,dy \right)^p\,dx &\leq& \left( \int \left(|f(y)|\,|g(x-y)|^{\frac{1}{p}}\right)^p\,dy \right)^{\frac{1}{p}} \left(\int \underbrace{(|g(x-y)|^{\frac{1}{q}})^q}_{=\|g\|_1} \right)^{\frac{1}{q}}.
+		\end{IEEEeqnarray*}
+		Now take both sides to the power $p$ to get
+		\begin{IEEEeqnarray*}{rCl}
+			 \int \left( \int |f(y)|\,|g(x-y)|\,dy \right)^p\,dx &\leq& \left( \int \left(|f(y)|\,|g(x-y)|^{\frac{1}{p}}\right)^p\,dy \right)^1 \left(\int (|g(x-y)|^{\frac{1}{q}})^q \right)^{\frac{p}{q}}.
+		\end{IEEEeqnarray*}
+		This gives
+		\begin{IEEEeqnarray*}{rCl}
+			\int |f*g|^p\,dx \leq \|g\|^{\frac{p}{q}} \int\left[\int |f(y)|^p\,|g(x-y)|\,dy\right]\,dx &\overset{\text{Fubini}}=& \|g\|^{\frac{p}{q}}\int \left(\underbrace{\int_{\mathbb{R}^n} |g(x-y)|}_{\int|g(x)|\,dx}\,dx\right) |f(y)|^p\,dy\\
+			&=&
+			\underbrace{\|g\|_1 \|g\|_1 \|f\|_p^p}_{\|g\|_1^{p-1+1}}
+		\end{IEEEeqnarray*}
+		and hence
+		\[
+			\|f*g\|_p^p \leq \left(\|g\|_1\,\|f\|_p\right)^p  < \infty
+		\]
+		(this inequality holds since $g\in L_1$ and $f\in L_p$). Thus, $f*g\in L_p$ and $\|f*g\|\leq \|f\|_p\|g\|_1$ ($\Rightarrow |f(y)|\,|g(x-y)|$ is integrable almost everywhere).\newline\newline\noindent
+
+		For $p=1$ there is not much to do:
+		\begin{IEEEeqnarray*}{rCl}
+			\|f*g\| &=& \int |f*g|(x)\,dx\\ &=&\int \left| \int f(y)g(x-y)\,dy\right|\,dx\\
+			&\leq& \int \left[ \int |f(y)|\,|g(x-y)|\,dy \right]\,dx\\
+			&=& \int \underbrace{\left(\int |g(x-y)|\,dx\right)}_{=\|g\|_1} |f(y)|\,dy\\
+			&=& \|g\|_1 \, \|f\|_1.
+		\end{IEEEeqnarray*}
+
+		For $p=\infty$:
+		\begin{IEEEeqnarray*}{rCl}
+			|f*g|(x) &\leq& \int dy |f(y)|\,|g(x-y)|\,dy\\
+			&\overset{f\in L_\infty}\leq& \|f\|_\infty \underbrace{\int dy\,|g(x-y)|}_{=\|g\|_1},
+		\end{IEEEeqnarray*}
+		and therefore $f*g\in L_\infty$ and $\|f*g\|_\infty \leq \|f\|_\infty \|g\|_1$.
+	\end{proof}
+
+	\begin{lemma}[Additional properties]\label{c2se4thm34}
+		Let $f,g,h\in L_1(\mathbb{R}^n)$. Then
+		\begin{enumerate}
+			\item $(f*g)*h = f*(g*h)$ a.e.
+			\item If in addition $h\in L_\infty(\mathbb{R}^n)$ let $(Sf)(x) = f(-x)$. Then
+			\[
+				\int h(x)(f*g)(x)\,dx = \int f(x) \left((Sg)*h)\right)\,dx = \int g(x) \left(Sf*g\right)\,dx
+			\]
+			\item If $g\in C_c^k(\mathbb{R}^n)$, then
+				\begin{enumerate}
+					\item $N=\{x|\,y\mapsto f(y)g(x-y)\text{ not integrable}\} = \emptyset$
+					\item $f*g\in C^k(\mathbb{R}^n)$
+					\item $\forall k\geq 1$ it holds that
+					\[
+						\partial^\alpha(f*g) = f*\partial^\alpha g,\quad\forall \alpha\in \mathbb{R}^n,\,|\alpha|\leq k
+					\] 
+				\end{enumerate}
+		\end{enumerate}
+	\end{lemma}
+
+	\begin{proof}
+		Analysis III. Note that
+		\begin{IEEEeqnarray*}{rCl}
+			\int f(x)(f*g)(x)\,dx &=& \int h(x) \int f(y)g(x-y)\,dy\,dx\\
+			&=& \int f(y)\underbrace{\left( \int h(x)g(x-y)\,dx \right)}_{=g(-(y-x)) = (Sg)(y-x)}\,dy \\
+			&=& \int f(y)\left(h*Sg\right)(y)\,dy.
+		\end{IEEEeqnarray*}
+	\end{proof}
+
+	Another tool: There exists an analogy of $1_E\in C^\infty_c$.
+
+	\begin{lemma}\label{c2se4thm35}
+		\begin{enumerate}
+			\item $\exists\eta\in C^\infty_c(B(0,1))$ with
+				\begin{itemize}
+					\item $\eta\geq 0$
+					\item \[ \int_{\mathbb{R}}^n\eta\,dx = \int_{B(0,1)}\eta\,dx = 1 \]
+				\end{itemize}
+			\item $\exists \eta\in C^\infty_c(B(0,1))$ with
+				\begin{itemize}
+					\item $0\leq\eta\leq 1$
+					\item $\eta(x) = 1$m fir $|x|\leq\frac{1}{2}$
+					\item $\eta$ depends only on radial coordinate $\eta(-x) = \eta(x)$
+				\end{itemize} 
+		\end{enumerate}
+	\end{lemma}
+	\begin{proof}
+		Analysis III.
+	\end{proof}
+
+	\begin{theorem}[Approximation of any $f$]\label{c2se4thm36}
+		Let $1\leq p < \infty$. 
+		\begin{enumerate}
+			\item Let $\varphi\in L_1(\mathbb{R}^n)$ with \[ \int_{\mathbb{R}}^n \varphi\,dx = 1,\,\varphi\geq 0\],
+				and let $\varphi(k)(x) = k^n\varphi(xk),\,k\in\mathbb{N},\,k\geq 1$. Those $\varphi_k$ satisfy
+				\[
+					\int \varphi_k\,dx = \int \varphi(kx)k^n\,dx = \int \varphi(x)\,dx = 1.
+				\]
+				If $\supp \varphi \subset B(0,1)$ then $\varphi(x) = 0$ if $|x| > 1$, and hence $\varphi_k(x) = 0$ if $|x|k>1$.\newline\noindent
+				Then, $\forall f\in L_p(\mathbb{R}^n)$ it holds that $\varphi_k*f\in L_p(\mathbb{R}^n)$ and $\lim_{k\to\infty}\varphi_k*f = f$ in $L_p$.
+			\item $U\subset\mathbb{R}^n$. Then $C^\infty_c(U)$ is dense in $L^p(U)$. 
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{remark}
+		The second property means, that we can approximate any function in $L^p(U)$ using a series of $C^\infty_c(U)$ functions.
+	\end{remark}
+
+	\begin{proof}
+		Analysis III.
+	\end{proof}
+
+% CHANGING SECTION
+
+\section{Sobolev spaces}\label{C2se5}
+	
+	The problem with $L_p$ functions is, that they are in general not differentiable (even not continuous). We could consider
+	\[
+		C^k \cap L^p.
+	\]
+	This rises another problem: The space is not complete! Therefore we need another approach. A first idea would be to consider $C^k\cap L^p$ and complete the space. The other idea would be to define \textbf{Sobolev spaces} $W^{k,p}$, containing functions that are \emph{weakly differentiable} $k$ times. We choose the second approach!\newline\newline\noindent
+	\begin{example}
+		Consider the set of functions $\{f\in C^1((0,1))|\,f,f'\in L^1((0,1))\}$. We can define a norm on this space by 
+		\[
+			\|f\|_{C^1} = \|f\|_1 + \|f'\|_1
+		\]
+		(as seen before). Take a Cauchy sequence $f_n$:
+		\[
+			\|f_n-f_m\|_{C^1} = \| = \|f_n0f_m\|_1 + \|f_n'+f_m'\|_1 \overset{n,m\to\infty}\to 0.
+		\]
+	Then, $f_n$ and $f_n'$ are both Cauchy sequence in $L^1((0,1))$. As $L^1$ is complete, there are $f,g\in L^1$ such that
+	\[
+		f_n\to f\text{ in }L_1,\quad f_n'\to g\text{ in }.
+	\]
+	We expect $g\approx f'$ ($f'$ may not exist!). What's the relation between $g$ and $f$?
+	\begin{IEEEeqnarray*}{rCl}
+		\xi\in C^\infty_c((0,1)):\quad\int_0^1 f\xi'\,dx &=& \int_0^1 \lim_{j\to\infty}f_j \xi'\,dx\\ &=& \lim_{j}\int_0^1 f_j(x)\xi'(x)\,dx\\
+		&\overset{\xi|_{\partial B(0,1)} = 0}=& \lim_{j\to\infty}\int_0^1 -f_j'(x)\xi(x)\,dx\\
+		&=& \int_0^1 - (\lim_j f_j')\,\xi\,dx\\
+		&=& \int_0^1 -g(x)\xi(x)\,dx.
+	\end{IEEEeqnarray*}
+	If $f$ was differentiable, then $g=f'$ would hold. However, $g$ is called the \emph{weak derivative} of $f$.\newline\noindent
+
+	\end{example}
+	\begin{definition}[Weak derivative]\label{c2se5def37}
+		Let $U\subset\mathbb{R}^n$. $f\in L_1(U)$ is \emph{weakly differentiable} if $\exists$ functions $g_1,...,g_n\in L_1(U)$ with
+		\[
+			\int_U f\frac{\partial}{\partial x_j}\xi\,dx = \int_U -g_i(x)\xi(x)\,dx,\quad\forall\xi\in C^\infty_c(U).
+		\]
+		$f\in L_1(U)$ is $k$-times weakly differentiable, if $\exists$ functions $g^\alpha\in L_1(U)$, for all $\alpha\in\mathbb{N}^n$ with $|\alpha|\leq k$, such that
+		\[
+			\int_U f\partial^\alpha \xi\,dx = (-1)^{|\alpha|} \int g_\alpha\xi\,dx,\quad\forall \xi\in C^\infty_c(U).
+		\]
+		The functions $g_\alpha$ are called the weak derivatives of $f$.
+	\end{definition}
+
+	\begin{remark}
+		The weak derivatives, if they exist, are unique, and it depends only on the $L^p$ equivalence class of $f$ (all form the same equivalence class have the same weak derivative). 
+	\end{remark}
+	This is a consequence of the following $(IMP)$ Lemma
+
+	\begin{lemma}\label{c2se5thm38}
+		Let $U\subset\mathbb{R}^n$ open, $f\in L^p(U)$, for $1\leq p\leq \infty$. If
+		\[
+			\int_U \xi(x)f(x)\,dx = 0,\quad\forall\xi\in C^\infty_c(U),
+		\]
+		then $f=0$ almost everywhere.
+	\end{lemma}
+
+	\begin{proof}
+		Let $1\leq p < \infty$ and define $U_\delta = U\setminus \overline{B(\partial U,\delta)}$. This is an open set. We will prove that $f_{|U_\delta}= 0$ a.e. $\forall \delta$ and this will imply $f=0$ a.e.\newline\noindent
+		Let $\varphi\in C^\infty_c(\mathbb{R}^n)$ with $\varphi\geq 0$ and $\int_{\mathbb{R}^n}\varphi\,dx = 1$ and $\supp\varphi\subset B(0,1)$. Moreover define a sequence
+		\[
+			\varphi_k(x) \coloneqq k^n\varphi(k) \in C^\infty_c(\mathbb{R}^n),\,\supp\varphi_k\subset B(0,\frac{1}{k}).
+		\]
+		Then let
+		\[
+			f_k(x) \coloneqq (\varphi_k*f)(x) = \underbrace{\int_{\mathbb{R}^n} \varphi_k(y)f(x-y)\,dy}_{f(x)\coloneqq 0,\,\forall x\not\in U}.
+		\]
+		Then $f_k\in C^\infty(\mathbb{R}^n)$, for all $k$ and $f_k\overset{k\to\infty}\to f$ in $L_p(\mathbb{R}^n)$. $f_k|_{U_\delta}\to f|_{U_\delta}$ can be shown. 
+		%CONTINUE HERE!!!!!!!!
+		% PROOF NOT COMPELTE
+	\end{proof}
+
+	\begin{definition}[Sobolev space]
+		Let $U\subset\mathbb{R}^n, 1\leq p\leq\infty, k\in\mathbb{N}_{\geq 1}$. Define 
+		\[
+			W^{k,p} \coloneqq \{f\in L^p(U)|\, \forall\alpha\in\mathbb{N}^n, |\alpha|\leq k\,\exists f^\alpha\in L^p(U) \text{ weak der.}\}.
+		\]
+		This means that for each $f^\alpha$ it holds that
+		\[
+			\int_U f\partial^\alpha\xi\,dx = (-1)^{|\alpha|}\int_U f^\alpha\xi\,dx,\quad\forall\xi\in C^\infty_c(U).
+		\]
+		It is the space of all functions in $L^p$ with weak derivatives up to order $k$ s.t. the weak derivatives are also in $L^p$.\newline\noindent
+		We can make this a normed space defining for $1\leq p<\infty$
+		\[
+			\|f\|_{W^{k,p}} \coloneqq \left(\sum_{\ell=0}^k (\|D^\ell f\|_p)^p\right)^{\frac{1}{p}},\quad\forall f\in W^{k,p},
+		\]
+		and for $p=\infty$
+		\[
+			\|f\|_{W^{k,\infty}} \coloneqq \max_{\ell=0,...,k} \|\, |D^\ell f|\,\|_{\infty}.
+		\]
+	\end{definition}
+
+	\begin{theorem}\label{c2se5thm39}
+		The pair $(W^{k,p},\|_{W^{k,p}})$ is a Banach space. For $p=2$, the space $W^{k,2} \eqqcolon H^k$ is a Hilbert space with scalar product
+		\[
+			(g,f)_{W^{k,2}} \coloneqq \sum_{|\alpha|\leq k} (\partial^\alpha g,\partial^\alpha f)_{L^2}
+		\] 
+		(using the weak derivatives of $f$ and $g$).
+	\end{theorem}
