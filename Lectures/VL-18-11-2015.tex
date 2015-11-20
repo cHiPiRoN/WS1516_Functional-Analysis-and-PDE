@@ -1,0 +1,294 @@
+\documentclass[../skript.tex]{subfiles}
+
+
+% Still chapter 2 section X so ===>			Prefix 		c2seX___
+
+	\section{$L^p$ spaces - Lebesgue integral}\label{c2se4}
+		We need to be able to measure sets.
+		\begin{definition}[$\sigma$-Algebra, measurable space]\label{c2se4def20}
+			Let $X$ be a set. A fmily $S$ of subsetsin $2^X$ is called a \emph{$\sigma$-Algebra}, if 
+			\begin{enumerate}
+				\item $S\not=\emptyset$
+				\item $\forall (A_n)_{n\in\mathbb{N}} A_n\in S\forall n \,\Rightarrow \bigcup_{n}A_n\in S$
+				\item $A\in S \Rightarrow A^c = X\setminus A \in S$.
+			\end{enumerate}
+			The pair $(X,S)$ is called a measurable space.
+		\end{definition}
+		\begin{remark}
+			From the definition we have that $\emptyset\in S$ for a $\sigma$-Algebra $S$ on $X$. By property 3 of the definition, also the complement has to be in $S$, i.e. in this case $\emptyset^c = X \in S$.
+		\end{remark}
+		\begin{remark}
+			\begin{itemize}
+				\item $2^X$ is a $\sigma$-Algebra on $X$.
+				\item $\{A\subset X|\,A\text{ countable or } A^c\text{ countable }\}$ is $\sigma$-Algebra on $X$.
+				\item Arbitrary intersections of $\sigma$-Algebras is also $\sigma$-Algebra:
+				\[
+					\forall C\subset 2^X \exists\text{ unique smallest }\sigma\text{-Algebra containing }C.
+				\]
+				This $\sigma$-Algebra is denoted by $\sigma(C)$ or $\sigma_X(C)$.
+				\item Let $(X,\mathcal{T})$ topological space. We define the Borel-$\sigma$-Algebra
+				\[
+					\mathcal{B}(X) \coloneqq \text{ smallest }\sigma\text{-Algebra containing }\mathcal{T}. 
+				\]
+				\item Note that in a topology, we have stability under finite intersection and arbitrary union, whereas in an $\sigma$-Algebra we haave stability under countable intersection and countable union.
+			\end{itemize}
+		\end{remark}
+
+		\begin{definition}[Measure]\label{c2se4def21}
+			Let $(X,S)$ a measurable space. A function $\mu:S\to[0,\infty]$ is a \emph{measure} if
+			\begin{itemize}
+				\item [$1)$ ] $\mu(\emptyset) = 0$
+				\item [$2)$ ] 
+				\[
+					\forall (A_n)_{n\in\mathbb{N}}\subset S \text{ and }A_n\cap A_m=\emptyset \Rightarrow \mu(\bigcup_n A_n) = \sum_{n}\mu(A_n)
+				\]
+			\end{itemize}
+			The space $(X,S,\mu)$ is a \emph{measure space}.
+		\end{definition}
+		\begin{definition}[Properties of a measure]
+			- If $\mu(X) < \infty$, then $\mu$ is called \emph{finite}.\newline\noindent
+			- If there is $(A_n)_{n\in\mathbb{N}}$ s.t. $A_n\in S$ for all $n$ with $\bigcup_n A_n = X$ and $\mu(A_n) < \infty,\,\forall n\in\mathbb{N}$, then $\mu$ is called \emph{$\sigma$-finite}.\newline\noindent
+			- If $\mu(X) = 1$ then $\mu$ is called a \emph{probability measure}.\newline\noindent
+			- $A\in S$ is called a \emph{null set} if $\mu(A) = 0$.\newline\noindent
+			- A property $P$ is true\emph{ almost everywhere (a.e.)}, if $\exists A\in S$ with $\mu(A) = 0$ s.t. $P$ holds on all $A^c$.\newline\noindent
+			- A measure space $(X,S,\mu)$ is \emph{complete}, if $\forall B\subset X$ s.t. $\exists A\in S$ wit $\mu(A) = 0$ and $B\subset A$, it holds that $B\in S$ with $\mu(B) = 0$.\newline\noindent
+			- For a measure space $(X,S,\mu)$, there is a unique smallest $\sigma$-Algebra $S_\mu$ on X, with $S\subset S_\mu$ and $\exists\hat\mu$ on $S_\mu$ s.t. $\hat\mu(A) - \mu(A),\,\forall A\in S$. Then $\hat\mu$ is called \emph{extension of $\mu$} and the measure space $(X,S_\mu,\hat\mu)$ is a complete measure space, called the \emph{completion of $(X,S,\mu)$} (We add all subsets of null sets).
+		\end{definition}
+
+		Some properties: 
+		\begin{itemize}
+			\item \[
+			A\subset B,\,A,B\in S \Rightarrow \mu(A) \leq \mu(B)
+		\]
+		\item Growing sequence of sets $(A_n)_{n\in\mathbb{N}}, A_n\in S,\,A_n\subset A_{n+1}\,\Rightarrow \mu(\bigcup_n A_n) = \lim_{n\to\infty} \mu(A_n)$
+		\item Decreasing sequence of sets $(A_n)_{n\in\mathbb{N}}, A_n\in S,\,A_n\supset A_{n+1}\,\exists n_0$ s.t. $\mu(A_{n_0})<\infty$ then
+		\[
+			\mu(\bigcap_n A_n) = \lim_{n\to\infty) \mu(A_n)}
+		\]
+		\end{itemize}
+
+		\begin{example}
+			\begin{itemize}
+				\item \textbf{Counting measure}: $X=\mathbb{N}, S=2^\mathbb{N}$, $\mu(E) = |E| = \# E $ number of elements in $E$. Then $(X,S,\mu)$ is a measure space.
+				\item \textbf{Dirac measure}: $X$ a set, $S=2^X$, $x\in X$ fixed point. Define the measure 
+				\[
+					\mu_x(E) = \begin{cases} 1 & x\in E\\ 0 & x\not\in E\end{cases}
+				\]
+				$\mu_x$ is a measure (the dirac-measure on $X$)
+				\item \textbf{Lebesgue Measure}: $\mathcal{L}_n$ is the unique measure on the Borel algebra $\mathcal{B}(\mathbb{R}^n)$ such that
+				\[
+					\mathcal{L}_n ([a_1,b_1[\times [a_2,b_2[ \times ... \times [a_n,b_n[ ) = \prod_{j=1}^n |b_j-a_j|,\quad\forall\, -\infty < a_j\leq b_j < \infty,\,j=1,...,n.
+				\]
+				The measure is \emph{translation invariant}. The space $(\mathbb{R}^n,\mathcal{B}(\mathbb{R}^n),\mathcal{L}_n)$ is \underline{not} complete: There are borel sets $I$ s.t. a their subsets $B\subset I$ are no Borel sets. Therefore define
+				\[
+					\pi_n = \mathcal{B}(\mathbb{R}^n)_{\mathcal{L}_n} = \{\text{ set of ``Lebesgue measurable sets'' }\}
+				\]
+			\end{itemize}
+		\end{example}
+
+		We want to talk about integrals. Therefore we need the following definition: 
+		\begin{definition}\label{c2se4def22}
+			\begin{enumerate}
+				\item Let $(X,S_X), (Y,S_Y)$ be two measurable spaces. 
+				\begin{enumerate}
+					\item A function $f:X\to Y$ is \emph{$(S_X,S_Y)$-measurable}, if 
+				\[
+					\forall B\in S_Y:\,f^{-1}(B)\in S_X.
+				\]
+				\item If $Y=\mathbb{R}$ (on $\mathbb{R}$ we always assume the Borel algebra) we write ``$S_x$-measurable'' instead of $(S_X,\mathcal{B}(\mathbb{R}))$-measurable
+				\end{enumerate}
+				\item 
+				\begin{enumerate}
+					\item Let $Y=\mathbb{R}$, $(X,S_X,\mu)$ a measurable space. Then, $f:X\to\mathbb{R}$ is $\mu-measurable$ if $f$ is $S_\mu$-measurable.
+					\item $A\subset X$ is $\mu$-measurable if $A\in S_\mu$, and that is equivalent to say that the characteristic function $1_A$ is $\mu$-measurable.
+				\end{enumerate}
+			\end{enumerate}
+		\end{definition}
+
+		\begin{remark}
+			A function $f:(X,S)\to\mathbb{R}$ is $S$-measurable, if 
+			\[
+				f^{-1}( (t,\infty) ) \in S,\quad\forall t 
+			\]
+			or
+			\[
+				f^{-1}( [t,\infty) ) \in S,\quad\forall t
+			\]
+			or $f^{-1}(I) \in S,\quad\forall I\text{ open}$.
+		\end{remark}
+
+		We can now define integrals (assume $f$ is measurable in each case!):\newline\noindent
+		First, let $f:X\to\{0,1\},\,f = 1_E$ be a characteristic function for some $E\in S$. Then define the integral
+		\[
+			\int_X f\,d\mu \coloneqq \mu(E).
+		\]
+		For simple functions $f:X\to\mathbb{R}, f(u) \sum_{i=0}^\infty a_i 1_{E_i}(u)$ for $a_i\geq 0, E_i\in S$ define the integral as
+		\[
+			\int_X f\,d\mu \coloneqq \sum_{i} a_i \mu(E_i) \text{  may be }\infty.
+		\]
+		All $f:X\to\mathbb{R}_+$ can be approximated by simple functions.\newline\noindent
+		$f:X\to\mathbb{R}$ can be represented as $f = f_+ + f_-$ and the parts can be approximated by simple functions.\newline\noindent
+		If our function is complex-valued, $f:X\to\mathbb{C}$, the we can approximate it componentwise: $f=\Re{f} + \Im{f}$.
+
+
+		\begin{definition}
+			We call a function $f:X\to\mathbb{R}$ \emph{integrable}, if 
+			\[
+				\int_X |f| \,d\mu < \infty.
+			\]
+		\end{definition}
+
+		Let's talk about convergence theorems.
+
+		\begin{theorem}[Monotone Convergence]\label{c2se4thm23}
+			Let $(X,S,\mu)$ measure space and let $f_j:X\to\mathbb{R}$ a sequence of measurable functions, $j\in\mathbb{N}$, such that $f_j$ is integrable $\forall j$, and $f_{j+1}(x) \geq f_j(x),\,\forall j$, a.e. $x$. Then
+			\[
+				\lim_{j\to\infty}\int_X f_j\,d\mu = \lim_X \lim_{j\to\infty}f_j\,d\mu.
+			\]
+		\end{theorem}
+
+		\begin{theorem}[Fatou]\label{C2se4thm24}
+			Let $(X,S,\mu)$ measure space, $f_j:X\to[0,\infty],\,j\in\mathbb{N}$ s.t. each $f_j$ is integgrable. Then
+			\[
+				\liminf_{j} \int_X f_j\,d\mu \geq \int_X\liminf_j f_j\,d\mu.
+			\]
+		\end{theorem}
+
+		\begin{theorem}[Dominated convergence]\label{c2se4thm25}
+			Let $(X,S,\mu)$ measure space, $f_j:X\to\mathbb{C}$, $j\in\mathbb{N}$, s.t. $f_j$ is measurable for all $j$ and
+			\[
+				\lim{j\to\infty}f_j(x) = f(x)\quad\mu\text{ almost everywhere}.
+			\]
+			Moreover let $g:X\to\mathbb{R}_+$ integrable s.t. $|f_j(x)|\leq g(x),\forall j\forall x$.\newline\noindent
+			Then, $f$ is measurable and it holds that
+			\[
+				\lim_{j\to\infty}\int_X f_j\,d\mu = \int_X f\,d\mu.
+			\]
+			This is equivalent to
+			\[
+				\lim_{j\to\infty} \int_X |f_j-f|\,d\mu = 0.
+			\]
+		\end{theorem}
+
+		\begin{theorem}[Fubini]\label{C2se4thm26}
+			Let $(X_1,S_1,\mu_1),(X_2,S_2,\mu_2)$ two $\sigma$-finite measure spaces, and let $S_1\times S_2$ the product $\sigma$-algebra, $\mu = \mu_1\times \mu_2$ the unique measure s.t. $\mu(A_1\times A_2) = \mu_1(A_1)\mu_2(A_2),\,\forall A_1\in S_1,\forall A_2\in S_2$. \newline\noindent
+			\textbf{F1) } Let $f:X\to [0,\infty]$ \underline{$\mu$-measurable}. Then 
+			\[
+				x_1 \mapsto \int_{X_2} f(x_1,x_2)\,d\mu_2(x_2)\quad\text{ is }\mu_1\text{-measurable}
+			\]
+			and
+			\[
+				x_2 \mapsto \int_{X_2} f(x_1,x_2)\,d\mu_1(x_1)\quad\text{ is }\mu_2\text{-measurable}.
+			\]
+			Moreover
+			\[
+				\int_X f\,d\mu = \int_{X_2}\left( \int_{X_1} f\,d\mu_1 \right)\,d\mu_2 = \int_{X_1}\left(\int_{X_2}f\,d\mu_2\right)\,d\mu_1.
+			\]
+			\textbf{F2) } Let $f:X\to\mathbb{R}$ \underline{integrable}. Then
+			\[
+				h_{x_1}:X_2\to\mathbb{R},\,x_2\mapsto f(x_1,x_2)\text{ is integrable }\mu_1\text{-a.e.}
+			\]
+			and 
+			\[
+				g_{x_2}:X_1\to\mathbb{R},\,x_1\mapsto f(x_1,x_2)\text{ is integrable }\mu_2\text{-a.e.}.
+			\]
+			Moreover
+			\[
+				\int_X f\,d\mu = \int_{X_1}\left(\int_{X_2}f\,d\mu_2\right)\,d\mu_1 = \int_{X_2}\left(\int_{X_1}f\,d\mu_1\right)\,d\mu_2.
+			\]
+		\end{theorem}
+
+		Now, we can finally introduce $L_p$ spaces.
+		\begin{definition}\label{c2se4def27}
+			Let $(X,S,\mu)$ measure space.
+			\begin{itemize}
+				\item For each $f:X\to Y$ with $Y\in\{\mathbb{R},\mathbb{C}\}$ define 
+				\[
+					\|f\|_p \coloneqq \left(\int_X |f|^p\,d\mu\right)^{\frac{1}{p}},\quad 1\leq p < \infty
+				\]
+				In this definition, $|\cdot|$ is the norm in $\mathbb{R}, \mathbb{R}^n, \mathbb{C}$. For $p=\infty$ we define
+				\[
+					\|f\|_{\infty} \coloneqq \esssup_x |f(x)| = \inf \{0\leq M|\, \mu(\{x|\,|f(x)| > M\}) = 0\}.
+				\]
+				\item For $1\leq p \leq \infty$, $Y=\mathbb{R}^n,\mathbb{C}$ we define
+				\[
+					L_p(X) \coloneqq \{f:X\to Y|\,f\text{ measurable and }\|f\|_p<\infty\}.
+				\]
+				This is the set of \emph{$p$-integrable functions}.
+				\item This is no normed space. Therefore set an equivalence relation $\texttildelow$: $f\tilde{g}$ iff $f=g$ $\mu$-a.e. Using this we define
+				\[
+					L^p(X) \coloneqq L_p(X)/_{~} = \{[f]\}.
+				\]
+			\end{itemize}
+		\end{definition}
+		\begin{remark} 
+			$f\tilde g$ implies that $\|f\|_p = \|g\|_p$ and therefore $\|[f]\|_p = \|[g]\|_p$.
+		\end{remark}
+
+		\begin{theorem}[Completeness of $L^p$]\label{c2se4thm28}
+			\begin{itemize}
+				\item $\forall 1\leq p\leq\infty$ we have that $\|\cdot\|_p$ defines a seminorm on $L_p(X)$, and a norm on $L^p(X)$.
+				\item (\emph{Fischer-Riesz Theorem}) $(X,S,\mu)$ is a complete measure space $\Rightarrow\,(L^p(X),\|\cdot\|_p)$ is complete (and normed), so it is a Banach space.
+			\end{itemize}
+		\end{theorem}
+		A trick, that's often used in $L^p$ spaces is the Hölder-inequality:
+		\begin{theorem}[Hölder-inequality]\label{c2se4thm29}
+			Let $1<p,q<\infty$ s.t. $\frac{1}{p}+\frac{1}{q} = 1$ or $p=1,q=\infty$. Let $f:X\to\mathbb{C}, g:X\to\mathbb{C}, f\in L_p(X), g\in L_q(X)$. Then
+			\[
+				fg:X\to\mathbb{C}\in L_1(X)
+			\]
+			and \[
+				\int |fg|\,d\mu = \|fg\|_1 \leq \|f\|_p \|g\|_q.
+			\]
+		\end{theorem}
+
+
+		$L^p$ functions can be approximated by continuius functions.
+
+		\begin{theorem}\label{c2se4thm30}
+			Let $1\leq p<\infty$ and $U\subset \mathbb{R}^n$ open. Then, the set $C^0_C(U)$ is dense in $L_p(U)$.
+ 		\end{theorem}
+
+ 		\begin{remark}
+ 			$C(U)\cap L_\infty(U)$ is \underline{not dense} in $L_\infty(U)$! As a counterexample take $U=(-1,1)$ and $f(x) = sign(x)$. If $g$ approaches $f$ and is continuous, then $\sup g \geq \frac{1}{2}$ (as the function gets close to $1$) and $\inf g\leq -\frac{1}{2}$ (as the function gets close to $-1$). This means that there must be some jump of the function, i.e.
+ 			\[
+ 				\mu(f^{-1}(-\frac{1}{2}<g(u)<\frac{1}{2})) > 0.
+ 			\]
+ 			But then
+ 			\[
+ 				\|f-g\|_\infty \geq \frac{1}{2}.
+ 			\]
+ 		\end{remark}
+
+ 		We can also approximate $L_p$ functions by smooth functions.
+ 		\begin{theorem}\label{c2se4thm31}
+ 			Let $U\subset\mathbb{R}^n$ open and $1\leq p < \infty$. Then $C^\infty_c(U)$ is dense in $L_p(U)$.
+ 		\end{theorem}
+
+ 		A tool that's used to prove this is \emph{convolution}.
+
+ 		\begin{definition}[Convolution]\label{c2se4def32}
+ 			Let $f,g:\mathbb{R}^n\to\mathbb{R}$ measurable, and let 
+ 			\[
+ 				b_x:\mathbb{R}^n\to\mathbb{R},\,y\mapsto h_x(y) = f(y)g(x-y).
+ 			\]
+ 			There may be some points $x$ where $h_x$ is not integrable:
+ 			\[
+ 				N \coloneqq \{ x\in\mathbb{R}^n|\,h_x\text{ is not integrable} \}.
+ 			\]
+ 			The \emph{convolution} $f*g:\mathbb{R}^n\to\mathbb{R}$ is defined as 
+ 			\[
+ 				(f\circ g)(x) \coloneqq \begin{cases}\int_{\mathbb{R}^n} f(y)g(x-y)\,d\mu(y)&x\not\in N\\ 0& x\in N\end{cases}
+ 			\]
+ 		\end{definition}
+
+ 		\begin{remark}
+ 			The convolution is symmetric: $f*g = g*f$. Moreover, if $f=\tilde{f}$ a.e. and $g=\tilde{g}$ a.e. it holds that 
+ 			\[
+ 				f*g = \tilde{f} * \tilde{g},\quad\forall x.
+ 			\]
+ 		\end{remark}
+
+ 		\begin{theorem}\label{c2se4thm33}
+ 			Let $1\leq p \leq\infty, f\in L_1(\mathbb{R}^n), g\in L_p(\mathbb{R}^n)$. Then $N$ has measure zero. Moreover $f*g\in L_p(\mathbb{R}^n)$ and $\|f*g\|_p \leq \|f\|_1 \|g\|_p$
+ 		\end{theorem}
