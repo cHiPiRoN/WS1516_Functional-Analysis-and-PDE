@@ -1,0 +1,103 @@
+\documentclass[../skript.tex]{subfiles}
+
+% Still chapter 2 section 5 so prefix is 		c2se5___
+
+	\begin{remark}
+		$D^\ell f(x)$ for multidimensional $f$ is a vector-valued function ( or a matrix ). Then
+		\[
+			\|D^\ell f\|_p^p = \int_U |D^\ell f(x)|^p\,dx = \int_U \sqrt{\sum_{|\alpha|=\ell}|\partial^\alpha f|^2}\,dx.
+		\]
+	\end{remark}
+
+	\begin{theorem}[Completeness of the Sobolev-spaces]\label{c2se5thm40}
+		The pair $(W^{k,p}(U),\|\cdot\|_{W^{k,p}})$ for $U\subset\mathbb{R}^n$ open is a Banach space. In addition $W^{k,2}$ is a Hilbert space with scalar product
+		\[
+			(f,g)_{W^{k,2}} \coloneqq \sum_{|\alpha|\leq k} (\partial^\alpha f,\partial^\alpha g)_{L^2(U)}.
+		\]
+	\end{theorem}
+	\begin{proof}
+		It is easy seen that $\|\cdot\|_W$ is really a norm: 
+		\[
+			\|f\|_{W^{k,p}} = 0 \,\Rightarrow\, f=0\text{ a.e. },
+		\]
+		as $\|f\|_{W^{k,p}} = \sum_{\alpha} \|\partial^\alpha f\|_{L^p}$, so $\|f\|_{L^p} = 0$ and hence $f=0$ a.e.\newline\newline\noindent
+		\textbf{It remains to prove completeness:} Let $f_n$ Cauchy sequence in $W^{k,p}$. This means
+		\[
+			\|f_n-f_m\|_{W^{k,p}} \overset{n,m\to\infty}\to 0 \Rightarrow \begin{cases}\|f_n-f_m\|_p \to 0 &\Rightarrow f_n\text{ Cauchy in }L^p(U)\\\|\partial^\alpha f_n-\partial^\alpha f_m\|_p \to 0 &\Rightarrow \partial^\alpha f_n\text{ Cauchy in }L_p(U)\end{cases}
+		\]
+		(for all $|\alpha|\leq k$).\newline\noindent
+		We know that $(L^p(U),\|\cdot\|_p)$ is complete. This means there exist the limit of these Cauchy sequences, so there are $f,g^\alpha \in L^p(U)$ such that
+		\begin{IEEEeqnarray*}{rCl}
+			f_n &\to& f\text{ in }L^p(U)\\
+			\partial^\alpha f_n&\to& g^\alpha\text{ in }L^p(U).
+		\end{IEEEeqnarray*}
+		It remains to prove, that $f$ admits $k$-weak derivatives and $\partial^\alpha f = g^\alpha$: Let $\xi\in C^\infty_0(U)$. Then
+		\begin{equation}\label{c2se5_eqn*}\tag{*}
+			\int_U \partial^\alpha\xi f\,dx^n \overset{?}= (-1)^{|\alpha|} \int_U D^\alpha\xi f\,dx^n.
+		\end{equation}
+		If \cref{c2se5_eqn*} is true for all $\xi\in C^\infty_0(U)$ then $g^\alpha$ would be the weak derivative of $f$. Show this:
+		\begin{IEEEeqnarray*}{rCl}
+			\bigg|\int_U \bigg(\partial^\alpha&\xi& f (-1)^{|\alpha|} \xi g^\alpha\bigg)\,dx \bigg| \\ &=&
+				\left| \int_U \partial^\alpha\xi (f-f_n)\,dx + \underbrace{\int_U \partial^\alpha\xi f_n - (-1)^{|\alpha|}\xi\partial^\alpha f_n}_{=0}\,dx + (-1)^\alpha\int_U\xi(\partial^\alpha f_n-g^\alpha)\,dx\right|\\
+				&\leq& \int_U |\partial^\alpha\xi|\,|f-f_n|\,dx + \int_U |\xi|\,|\partial^\alpha f_n-g^\alpha|\,dx\\
+				&\leq& \|\partial^\alpha\xi\|_q\underbrace{\|f-f_n\|_p}_{\to 0}+\|\xi\|_q \underbrace{\|\partial^\alpha f_n-g^\alpha\|_p}_{\to 0} \quad \to 0.
+		\end{IEEEeqnarray*}
+		We have seen: $\partial^\alpha f_n \to g^\alpha$ in $L^p$. Therefore $g^\alpha$ is weak derivative of $f$ and hence $f\in W^{k,p}$.
+	\end{proof}
+
+	We already know that for $f\in L^p$ we can find a sequence of functions $\{f_n\}_n\subset C^\infty_0$ that approximates $f$, that is 
+	\[
+		f = \lim_{n\to\infty}f_n.
+	\]
+	We need something similar for functions in Sobolev-spaces, that is, we need $f_n\in C^\infty$ s.t. $f_n\to f$ in $L^p$ and $\partial^\alpha f_n\to \partial^\alpha f$ in $L^p$.
+
+	\begin{lemma}\label{c2se5thm41}
+		Let $k\geq 1$, $p\in [1,\infty], f\in W^{k,p}(U)$ and $U\subset\mathbb{R}^n$ an open subset. Let 
+		\[
+			f_{ext}:\mathbb{R}^n\to\mathbb{R},\quad f_{ext}(x) \coloneqq \begin{cases} f(x)&x\in U\\ 0&x\not\in U\end{cases}
+		\]
+		the usual extension of $f$. Let $\varphi\in C^\infty_0(B(0,1))$ with $\varphi\geq 0$ and $\int_{B(0,1)} \varphi(x)\,dx = 1$. Moreover, define a sequence of functions as
+		\[
+			\varphi_j(x) = j^n\varphi(jn),\quad\forall j\in\mathbb{N},j\geq 1.
+		\]
+		The elements of this sequence satisfy $\supp \varphi_j \subset U(0,\frac{1}{j})$.\newline\noindent
+		Now let $U_j \coloneqq \{x\in U|\,\dist(x,\mathbb{R}^n\setminus U) > \frac{1}{j}\} = U\setminus\overline{B(\partial U,\frac{1}{j})}$. \newline\newline\noindent
+		\textbf{Then: } 
+		\begin{itemize}
+			\item [$(i)$ ] $f_j = \varphi_j * f_{ext}\in C^\infty(\mathbb{R}^n))$ and $\partial^\alpha f_n(x) = \partial^\alpha \varphi_j*f_{ext}$.
+			\item [$(ii)$ ] $\forall x\in U_j$ we have $\partial^\alpha f_j = (\varphi_j * [\partial^\alpha f]_{ext})(x)$, where $[\partial^\alpha f]_{ext}$ is the extension of the \underline{weak} derivative of $f$. This means
+			\[
+				\int -\frac{\partial}{\partial y}\varphi(x-y) f(y)\,dy = \int\varphi(x-y)\partial f\,dy.
+			\]
+		\end{itemize}
+	\end{lemma}
+	\begin{remark} The weak derivative needs to be extended first, as the convolution is just defined for functions on the whole space.\newline\noindent
+	$\varphi_j$ is called a \emph{mollifier} (mollifying kernel). The sequence $(\varphi_j)_j$ is called \emph{Dirac sequence}.\newline\noindent
+	We already know that $\varphi_j*f_{ext}\to f_{ext}$ in $L^p(\mathbb{R}^n)$. For the derivatives this only holds in $U_j$!\newline\newline\noindent
+	If $U=\mathbb{R}^n$ then all statements hold directly in $\mathbb{R}^n$ ($f_{ext} = f$).
+	\end{remark}
+
+	\begin{proof}
+		\textbf{$(i)$ } Exercise.
+		\newline\newline\noindent
+		\textbf{$(ii)$ } In general we have 
+		\[
+			\partial^\alpha f_j(x) = \int_{\mathbb{R}^n} f_{ext}(y)\partial^\alpha\varphi_j(x-y)\,dy,\quad\forall x\in\mathbb{R}^n.
+		\]
+		Take $x\in U_j$. Then $\varphi_j(x-y) \neq 0 \Rightarrow |x-y| < \frac{1}{j}$, and if $x\in U_j$ then $y\in U$ must hold.
+		\begin{IEEEeqnarray*}{rCl}
+			\int_{\mathbb{R}^n} f_{ext}(y)\partial^\alpha \varphi_j(x-y)\,dy &=& \int_U f(y)\partial^\alpha_x\varphi_j(x-y)\,dy\\
+			&=& \int_U \underbrace{f(y)}_{\in W^{k,p}(U)} (-1)^{|\alpha|} \partial_y^\alpha\underbrace{\varphi_j(x-y)}_{=\xi(y)\text{ with }\supp\xi\subset U}\,dy\\
+			&=& \int_U \partial^\alpha f \underbrace{\varphi_j(x-y)}_{=\xi(y)\neq 0\Rightarrow y\in U}\,dy\\
+			&=& \int_{\mathbb{R}^n} [\partial^\alpha f]_{ext} \varphi_j(x-y)\,dy
+		\end{IEEEeqnarray*}
+		and therefore
+		\[
+			\Rightarrow \underbrace{\partial^\alpha f_j(x)}_{\text{strong}}(x) = (\underbrace{\partial^\alpha f_j}_{\text{weak}}*\varphi_j)(x),\quad\forall x\in U_j.
+		\]
+	\end{proof}
+
+
+
+
+

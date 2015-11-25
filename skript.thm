@@ -133,5 +133,16 @@
 \contentsline {remark}{{Remark}{2.54}{}}{41}{dummythm.2.54}
 \contentsline {lemma}{{Lemma}{2.55}{}}{41}{dummythm.2.55}
 \contentsline {proof}{{Proof}{22}{}}{41}{proof.22}
-\contentsline {definition}{{Definition}{2.56}{Sobolev space}}{42}{dummythm.2.56}
-\contentsline {theorem}{{Theorem}{2.57}{}}{42}{dummythm.2.57}
+\contentsline {lemma}{{Lemma}{2.56}{}}{41}{dummythm.2.56}
+\contentsline {lemma}{{Lemma}{2.57}{}}{42}{dummythm.2.57}
+\contentsline {proof}{{Proof}{23}{}}{42}{proof.23}
+\contentsline {remark}{{Remark}{2.58}{}}{43}{dummythm.2.58}
+\contentsline {proof}{{Proof}{24}{\cref {c2se5thm39}}}{43}{proof.24}
+\contentsline {definition}{{Definition}{2.59}{Sobolev space}}{44}{dummythm.2.59}
+\contentsline {theorem}{{Theorem}{2.60}{}}{44}{dummythm.2.60}
+\contentsline {remark}{{Remark}{2.61}{}}{44}{dummythm.2.61}
+\contentsline {theorem}{{Theorem}{2.62}{Completeness of the Sobolev-spaces}}{45}{dummythm.2.62}
+\contentsline {proof}{{Proof}{25}{}}{45}{proof.25}
+\contentsline {lemma}{{Lemma}{2.63}{}}{46}{dummythm.2.63}
+\contentsline {remark}{{Remark}{2.64}{}}{46}{dummythm.2.64}
+\contentsline {proof}{{Proof}{26}{}}{46}{proof.26}

@@ -188,10 +188,109 @@
 			f_k(x) \coloneqq (\varphi_k*f)(x) = \underbrace{\int_{\mathbb{R}^n} \varphi_k(y)f(x-y)\,dy}_{f(x)\coloneqq 0,\,\forall x\not\in U}.
 		\]
 		Then $f_k\in C^\infty(\mathbb{R}^n)$, for all $k$ and $f_k\overset{k\to\infty}\to f$ in $L_p(\mathbb{R}^n)$. $f_k|_{U_\delta}\to f|_{U_\delta}$ can be shown. 
-		%CONTINUE HERE!!!!!!!!
-		% PROOF NOT COMPELTE
 	\end{proof}
-
+	For the proof we use the auxiliary result of the following
+	\begin{lemma}\label{c2se5thm39bis}
+		$U\subset\mathbb{R}^n$ open, $f\in L_{1,loc}(U)$ (i.e. $\forall K\subset U$ compact it holds that $f\in L_1(K)$) 
+	\end{lemma}
+	\begin{lemma}
+		Let $\varphi\in C^\infty_0(B(0,1))$, $\varphi:\mathbb{R}^n\to\mathbb{R}$, s. t.
+		\[
+			\int_\mathbb{R}^n \varphi(x)\,dx^n = 1,\quad\varphi \geq 0.
+		\]
+		Let $\varphi_k(x) = k^n\varphi(kx)$. Then 
+		\begin{itemize}
+			\item [$(i) $] $\varphi_k*f\to f$ in $L_{1,loc}(U)$, i.e. for any $K\subset U$ compact
+				\[
+					\exists k_j(K)\text{ s.t. } (y\mapsto \varphi(x-y)f_{ext}(y))\text{ integrable }\forall k > k_0(K)\text{ inside any }K\subset U
+				\]
+				and $\varphi_k*f_{ext}\to f$ in $L^1(K)$.
+			\item [$(ii) $] If 
+				\[
+					\int_U f\xi\,dx^n = 0,\quad\forall \xi\in C^\infty_0(U)
+				\] 
+				then $f = 0$ a.e.  	
+		\end{itemize}
+	\end{lemma}
+	\begin{proof}
+		\textbf{(i)} Let $K\subset U$ compact and $\delta\coloneqq \dist(K,\mathbb{R}^n\setminus U) > 0$. Define
+		\[
+			K'=\{x\in\mathbb{R}^n | \, \dist(x,K)\leq\frac{\delta}{2}\}.
+		\]
+		Then also $K'$ is compact and $K\subset K'\subset U$. Now
+		\[
+			f_{|K'}:\mathbb{R}^n\to\mathbb{R},\quad f_{|K'}(x) = \begin{cases}f(x)&x\in K\\0&\text{else}\end{cases}.
+		\]
+		Then
+		\[
+			\int_{\mathbb{R}^n} |f_{|K'}|\,dx = \int_{K'} |f|\,dx < \infty 
+		\]
+		since $f\in L_{1,loc}(U)$ so $f_{|K'}\in L_{1,loc}(\mathbb{R}^n)$. This yields that $f_{|K'}(y)\varphi_k(x-y)$ is integrable in $\mathbb{R}^n$  for all $x$, \underline{and}  $\varphi_k*f_{|K'}\to f_{|K'}$ in $L^1(\mathbb{R}^n)$ (\cref{c2se4thm36}). Therefore $\varphi_k*f_{|K'}\to f_{|K'} = f$ in $L^1(K)$.\newline\noindent
+		We have that 
+		\[
+			\varphi*f_{|K'}(x) = \int f_{|K'}(y)\varphi_k(x-y)\,dy.
+		\]
+		Moreover
+		\[
+			\varphi*f(x) = \int_{\mathbb{R}^n} f_{ext}(y)\varphi_k(x-y)\,dy
+		\]
+		where $f_{ext}:\mathbb{R}^n\to\mathbb{R}$ is defined as 
+		\[
+			f_{ext}(x) \coloneqq \begin{cases} f(x)&x\in U\\0&x\not\in U\end{cases}.
+		\]
+		Let's take a point $x\in K$. Can we relate $f_{ext}$ with $f_{|K'}$ somehow? If $\varphi_k(x-y)\neq 0$ this means that $|x-y| < \frac{1}{k}$. If $\frac{1}{k}<\frac{\delta}{2}$, then $k>\frac{1}{0.5\delta}$. This means that $\varphi_k(x-y)\neq 0$ implies that $y\in K'$, so for all $y\in K'$ we have $f_{K'}(y) = f(y)$.
+		\[
+			\Rightarrow\, \varphi_k*f_{|K'}(x) = \varphi_k*f_{ext}(x),\quad\forall x\in K.
+		\]
+		We know that $\varphi_k*f_{|K'} \to f_{K'}= f$ in $L^1(K)$, but $\varphi_k*f_{|K'} = \varphi_K*f_{ext}$. Therefore
+		\[
+			\Rightarrow\, \varphi_k*f_{ext} \to f\text{ in }L^1(K),\quad\forall K\subset U\text{ compact}.
+		\]
+		\textbf{(ii) } 
+		\[
+			\int_U f(y)\xi(y)\,dy^n = 0,\quad\forall \varphi\in C^\infty_0(U).
+		\]
+		In particular take 
+		\[
+			\xi(y) \coloneqq \varphi_k(x-y)\,\Rightarrow\, \supp\xi\subset U\text{ for }k\text{ large enough}.
+		\]
+		In particular we can take $k$ such that $\frac{1}{k} < 0.5\delta\coloneqq 0.5\dist (x,\partial U)$. We can use $(i)$:
+		\begin{IEEEeqnarray*}{rCl}
+			0 &=& \int_U f\xi\,dy\\
+			&=& (\varphi_k*f)(x)\,\overset{k\to\infty}\to f(x)\text{ in }L^1(K).
+		\end{IEEEeqnarray*}
+		This proves that $f=0$ a.e. in $K$.\newline\noindent
+		$\Rightarrow$ $K_n\subset U$ s.t. $K_n$ compact, $\forall n\geq 1$ and 
+		\[
+			\bigcup_{n=1}^\infty K_n = U \quad\Rightarrow\quad f=0\text{ a.e. in } U.
+		\]
+		\textbf{Construction of $K_n$: } 
+		\begin{IEEEeqnarray*}{rCl}
+			U_n &\coloneqq& B(0,n)\cap U\setminus B\left(\partial U,\frac{1}{n}\right)\\
+			&=& \left\{ x\in U|\, |x|<n\text{ and } \dist(x,U^c)>\frac{1}{n} \right\}.
+		\end{IEEEeqnarray*}
+		$U_n$ is open, and $\dist(U_n,\mathbb{R}^n\setminus U)>\frac{1}{n}$, therefore $K_n = \overline{U_n}\subset U$ and $\bigcup_n K_n = U$.
+	\end{proof}
+	But have in Mind: 
+	\begin{remark}
+		$L_1\neq L_{1,loc}$! For example $\frac{1}{x}\not\in L_1(\mathbb{R}_+)$ but $\frac{1}{x}\in L_{1,loc}(\mathbb{R}_+)$.
+	\end{remark}
+	Using the result from \cref{c2se5thm39bis} we can also prove \cref{c2se5thm39}:
+	\begin{proof}[\cref{c2se5thm39}]
+		Let $f\in L^p(U)$. Then this does not imply $f\in L^1(U)$. Especially, if $|U|<\infty$ we have
+		\[
+			\int_U |f(x)|\,dx\leq \left(\int_U |f|^p\,dx\right)^\frac{1}{p}\underbrace{\left(\int_U 1^q\right)^{\frac{1}{q}}}_{=|U|^\frac{1}{q}}.
+		\]
+		Let now $K\subset U$ compact. Then
+		\begin{IEEEeqnarray*}{rCl}
+			\int_K |f(x)|\,dx &=& \int_U |f(x)| 1_K(x)\,dx\\
+			&\leq& \|f\|_p \underbrace{\|1_K\|_q}_{|K|^\frac{1}{q}<\infty \text{ since }K\text{ compact}}.
+		\end{IEEEeqnarray*}
+		Therefore $f\in L_{1,loc}(U)$ and therefore by \cref{c2se5thm39bis} we obtain
+		\[
+			\int_U f\xi\,dy = 0,\quad\forall\xi\in C^\infty_)(U) \,\Rightarrow\, f=0\text{ a.e. in }U.
+		\]
+	\end{proof}
 	\begin{definition}[Sobolev space]
 		Let $U\subset\mathbb{R}^n, 1\leq p\leq\infty, k\in\mathbb{N}_{\geq 1}$. Define 
 		\[
